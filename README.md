@@ -37,7 +37,7 @@ Probably the most confusing part of this app is building the `Object.create` met
 
 Build out the starter DOM structure in index.html:
 
-- A container div with id 'container' for the app, containint:
+- A container div with id 'container' for the app, containing:
   - A div with an 'unfinished' id for holding new tasks, containing:
     - An input field with the 'new-task-field' id for getting user input
     - A button with an 'add-item' id for submitting a new task
