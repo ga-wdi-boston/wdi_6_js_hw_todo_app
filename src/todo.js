@@ -13,9 +13,6 @@ var todoApp = {
       document.getElementById('todo-items').appendChild(aTodo.render());
     }
   },
-  completeTodo: function(aTodo) {
-    finishedTodos.splice(finishedTodos.indexOf(aTodo), 1);
-  },
   deleteTodo: function() {}
 };
 
@@ -23,15 +20,56 @@ var todoItem = {
   // XXX
   // Do I need to set this at all?
   name: "",
-  completed: false,
+  createdAt: new Date(),
+  completedAt: null,
   setTodoText: function(text) {
     this.name = text;
   },
-  completedButton: function() {},
-  deleteButton: function() {},
+  completedButton: function() {
+    var completedButton = document.createElement('button');
+    completedButton.innerHTML = "Completed?";
+    var thisItem = this;
+    completedButton.onclick = function() {
+      thisItem.completedAt = new Date();
+      thisTodoDiv = this.parentElement;
+      document.getElementById('completed-items').appendChild(thisItem.render());
+      thisTodoDiv.parentElement.removeChild(thisTodoDiv);
+    };
+
+    return completedButton;
+  },
+  deleteButton: function() {
+    var deleteButton = document.createElement('button');
+    deleteButton.innerHTML = "Delete";
+    deleteButton.onclick = function() {
+      thisTodo = this.parentElement;
+      thisTodo.parentElement.removeChild(thisTodo);
+    };
+    return deleteButton;
+  },
   render: function() {
-    todoElement = document.createElement('li');
-    todoElement.innerHTML = this.name;
+    // XXX
+    // refactor this function to make it less verbose
+
+    var todoElement = document.createElement('li');
+
+    var todoNameDiv = document.createElement('div');
+    todoNameDiv.innerText = this.name;
+    todoElement.appendChild(todoNameDiv);
+
+    var createdAtDiv = document.createElement('div');
+    createdAtDiv.innerText = "Created at: " + this.createdAt;
+    todoElement.appendChild(createdAtDiv);
+
+    if (this.completedAt !== null) {
+      var completedAtDiv = document.createElement('div');
+      completedAtDiv.innerText = "Completed at: " + this.completedAt;
+      todoElement.appendChild(completedAtDiv);
+    }
+
+    todoElement.appendChild(this.completedButton());
+    todoElement.appendChild(this.deleteButton());
+
     return todoElement;
   }
 };
