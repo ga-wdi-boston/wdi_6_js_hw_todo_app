@@ -26,6 +26,7 @@ var todoItem = {
   liTag.className = "todo-item";
   liTag.innerText = this.taskName;
   liTag.appendChild(this.completedButton());
+  liTag.appendChild(this.deleteButton());
   return liTag;
   },
   setTaskName: function(text) {
@@ -40,6 +41,16 @@ var todoItem = {
         var completedList = document.getElementById("completed-items");
         completedList.appendChild(finishedItem);
         that.parentElement.removeChild(that);
+      };
+    return button;
+  },
+  deleteButton: function() {
+    var button = document.createElement('button');
+    button.innerText = "Delete";
+      button.onclick = function(event){
+        that = this;
+        var deleteItem = that.parentNode;
+        deleteItem.parentElement.removeChild(deleteItem);
       };
     return button;
   }
