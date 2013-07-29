@@ -1,0 +1,8 @@
+describe("Object duplication", function() {
+
+
+
+
+
+
+};

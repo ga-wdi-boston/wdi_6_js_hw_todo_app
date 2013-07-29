@@ -1,8 +1,16 @@
-describe("hello", function() {
+var todoApp = {
+
+};
+
+var todoItem = {
+
+};
 
 
 
 
+
+window.onload = function () {
 
 
 };
