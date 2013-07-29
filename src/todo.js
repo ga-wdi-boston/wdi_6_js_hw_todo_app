@@ -23,7 +23,9 @@ var todoApp = {
 var todoItem = {
   render: function() {
   liTag = document.createElement('li');
+  liTag.className = "todo-item";
   liTag.innerText = this.taskName;
+  liTag.appendChild(this.completedButton());
   return liTag;
   },
   setTaskName: function(text) {
@@ -31,8 +33,15 @@ var todoItem = {
   },
   completedButton: function() {
     var button = document.createElement('button');
-    button.innerText = "COMPLETE DIS";
-    todoApp.unfinishedItems().appendChild(button);
+    button.innerText = "COMPLETE";
+      button.onclick = function(event){
+        that = this;
+        var finishedItem = that.parentNode;
+        var completedList = document.getElementById("completed-items");
+        completedList.appendChild(finishedItem);
+        that.parentElement.removeChild(that);
+      };
+    return button;
   }
 };
 
