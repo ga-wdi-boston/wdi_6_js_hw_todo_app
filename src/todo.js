@@ -1,11 +1,15 @@
 window.onload = function() {
   var newItemBox = document.getElementById('new-task-field');
   var addItemButton = document.getElementById('add-item');
+  var removeAllButton = document.getElementById('remove-all');
   addItemButton.onclick = function(event) {
     var newTaskString = newItemBox.value;
     todoApp.createTodo(newTaskString);
     console.log("clicked");
     newItemBox.value = "";
+  };
+  removeAllButton.onclick = function(event) {
+    removeAll();
   };
 };
 
@@ -70,6 +74,15 @@ function clone(parent) {
   return new F();
 }
 
-
+function removeAll() {
+  var unfinishedTodos = document.getElementById('todo-items').childNodes;
+  var finishedTodos = document.getElementById('completed-items').childNodes;
+  for (i = unfinishedTodos.length - 1; i >= 0; i--) {
+    document.getElementById('todo-items').removeChild(unfinishedTodos[i]);
+  }
+  for (i = finishedTodos.length - 1; i >= 0; i--) {
+    document.getElementById('completed-items').removeChild(finishedTodos[i]);
+  }
+}
 
 
