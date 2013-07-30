@@ -64,12 +64,24 @@
       };
   };
 
-// window.onload = function () {
-//   var addItemButton = document.getElementById("add-item");
+window.onload = function () {
+  var addItemButton = document.getElementById("add-item");
+  var clearAllTasksButton = document.getElementById("clear-all-tasks");
 
-//   addItemButton.onclick = function() {
-//     var taskToBeAdded = document.getElementById("new-task-field").value;
-//     todoApp.createTask(taskToBeAdded);
-//     console.log("checking if onclick is working");
-//   };
-// };
+  addItemButton.onclick = function() {
+    var taskToBeAdded = document.getElementById("new-task-field").value;
+    todoApp.createTask(taskToBeAdded);
+    console.log("checking if onclick is working");
+  };
+
+  clearAllTasksButton.onclick = function() {
+    var completedList = document.getElementById("completed-items");
+    var unFinishedList = document.getElementById("todo-items");
+    while (completedList.lastChild) {
+      completedList.removeChild(completedList.lastChild);
+    };
+    while (unFinishedList.lastChild) {
+      unFinishedList.removeChild(unFinishedList.lastChild);
+    };
+  }
+};

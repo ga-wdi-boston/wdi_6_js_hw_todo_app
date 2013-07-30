@@ -5,6 +5,12 @@ describe("Object duplication", function() {
   });
 });
 
+describe("todoApp", function() {
+  it("should have a clearAllTasksButton method that returns a button", function() {
+    expect(todoApp.clearAllTasksButton().nodeName.toBe("BUTTON");
+  });
+});
+
 describe("todoItem", function() {
   var task = Object.create(todoItem);
   task.setTaskName("Do laundry");
