@@ -1,27 +1,37 @@
   var todoApp = {
-    unfinishedTasks: [],
     createTask: function(taskToBeAdded) {
-      if (taskToBeAdded !== "") {
+      if (taskToBeAdded == "") {
+        alert("Your input cannot be blank!");
+      } else {
         var newTask = Object.create(todoItem);
-        newTask.name = taskToBeAdded;
-        this.unfinishedTasks.push(newTask);
+        newTask.setTaskName(taskToBeAdded);
         this.appendTask(newTask);
       }
     },
 
     appendTask: function(taskToBeAppended) {
-      var taskList = document.getElementById("todo-items");
-      var taskItem = document.createElement("li");
-      taskItem.innerHTML = taskToBeAppended.name;
-      taskList.appendChild(taskItem);
-      taskItem.appendChild(todoItem.completedButton());
-      taskItem.appendChild(todoItem.deleteButton());
-      console.log("checking if appending is working");
+      this.ulElement().appendChild(taskToBeAppended.render());
+      todoItem.completedButton();
+    },
+
+    ulElement: function() {
+      return document.getElementById("todo-items");
     }
   };
 
   var todoItem = {
-    name: 'Default New Task',
+    render: function() {
+      taskItem = document.createElement("li");
+      taskItem.innerHTML = this.taskName;
+      taskItem.appendChild(todoItem.completedButton());
+      taskItem.appendChild(todoItem.deleteButton());
+      return taskItem;
+    },
+
+    setTaskName: function(text) {
+      this.taskName = text;
+    },
+
     completedButton: function() {
       console.log("check if complete button is working");
       var button = document.createElement("button");
