@@ -5,7 +5,18 @@ describe("Object duplication", function() {
   });
 });
 
+describe("todoItem", function() {
+  var task = Object.create(todoItem);
+  task.setTaskName("Do laundry");
 
+  it("should have a completedButton method that returns a button", function () {
+    expect(todoItem.completedButton().nodeName).toBe("BUTTON");
+  });
+
+  it("should have a deleteButton method that returns a button", function() {
+    expect(todoItem.deleteButton().nodeName).toBe("BUTTON");
+  });
+});
 
 // var duplicator = function() {
 // }
