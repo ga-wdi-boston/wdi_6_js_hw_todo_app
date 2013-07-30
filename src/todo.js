@@ -10,7 +10,6 @@ var todoApp = {
   },
   appendTask: function(task) {
   this.ulElement().appendChild(task.render());
-  todoItem.completedButton();
   },
   ulElement: function() {
   return document.getElementById("todo-items");
@@ -65,14 +64,14 @@ function clone(todoItem) {
 
 var addTaskButton;
 
-// window.onload = function() {
+window.onload = function() {
 
-//     addTaskButton = document.getElementById("add-item");
+    addTaskButton = document.getElementById("add-item");
 
-//     addTaskButton.onclick = function(event) {
-//       var taskVal = document.getElementById("new-task-field").value;
-//       todoApp.createTask(taskVal);
-//     };
+    addTaskButton.onclick = function(event) {
+      var taskVal = document.getElementById("new-task-field").value;
+      todoApp.createTask(taskVal);
+    };
 
-// };
+};
 
