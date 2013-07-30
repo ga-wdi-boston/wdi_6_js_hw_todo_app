@@ -38,8 +38,11 @@ p{
 	background:#404040;
 	color:#eeeeee;
 }
+#unfinished li {
+	margin: 10px 0;
+}
 #finished li{
-	list-style-type: none;
+	margin: 10px 0;
 }
 #finished li .items{
 	color:#aaaaaa;
@@ -56,22 +59,25 @@ button{
 
 .delete{
 	background:#eecccc;
+	margin-left: 10px;
 }
 
-.complete{
-	background:#eeeeee;
+.delete:hover{
+	background:#ff6060;
 }
 
 #add-item{
 	background:#6060ff;
 	padding:10px 20px 10px 20px;
 }
-.delete:hover{
-	background:#ff6060;
+
+.complete {
+	margin-left: 10px;
+	background-color: #819FF7;
 }
 
 .complete:hover{
-	background:#80ff80;
+	background:#2E64FE;
 }
 
 #add-item:hover{
