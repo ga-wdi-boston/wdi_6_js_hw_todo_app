@@ -29,13 +29,11 @@
       this.taskName = text;
     },
     completedButton: function() {
-      console.log("check if complete button is working");
       var button = document.createElement("button");
       button.innerHTML = "Completed";
       button.setAttribute("class", "complete");
       button.onclick = function() {
         var that = this;
-        console.log("wwwww");
         var accomplishedItem = that.parentElement;
         var completedList = document.getElementById("completed-items");
         completedList.appendChild(accomplishedItem);
@@ -71,15 +69,12 @@ window.onload = function () {
   addItemButton.onclick = function() {
     var taskToBeAdded = document.getElementById("new-task-field").value;
     todoApp.createTask(taskToBeAdded);
-    console.log("checking if onclick is working");
   };
 
   clearAllTasksButton.onclick = function() {
     var completedList = document.getElementById("completed-items");
     var unFinishedList = document.getElementById("todo-items");
     while (completedList.lastChild) {
-      completedList.removeChild(completedList.lastChild);
-    };
     while (unFinishedList.lastChild) {
       unFinishedList.removeChild(unFinishedList.lastChild);
     };
