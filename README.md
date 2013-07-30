@@ -99,4 +99,7 @@ You may want to refactor some code, add helper methods to clean up the repeated 
 
 #####Step 7 (Optional):
 
-Add a 'created on:' and 'completed on:' section to the tasks to keep track of the date when the tasks were created and completed.
+Add a 'created on:' and 'completed on:' section to the tasks to keep track of the date when the tasks were created and completed
+
+
+Question: Why var that = this?
