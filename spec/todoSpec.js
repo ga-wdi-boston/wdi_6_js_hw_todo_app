@@ -1,4 +1,4 @@
-describe("todoItem objects", function() {
+describe("todoItem object", function() {
 
   it("should create accurate duplicates", function() {
     newItem = clone(todoItem);
@@ -28,4 +28,21 @@ describe("todoItem objects", function() {
 });
 
 describe("todoApp", function() {
+
+  describe("clearAll()", function() {
+
+    todoApp.createTodo("Call Mom");
+    todoApp.createTodo("Finish that paper");
+    document.getElementsByClassName('completed-button')[0].click();
+    // XXX
+    // How to test part of an onclick function??
+    // I want to clear completed tasks, too!
+    it("should clear all tasks", function() {
+      todoApp.clearAll();
+      expect(document.getElementById('todo-items').innerHTML).toEqual(null);
+      expect(document.getElementById('completed-items').innerHTML).toEqual(null);
+    });
+
+  });
+
 });

@@ -12,8 +12,7 @@ var todoApp = {
     if (aTodo.name !== "") {
       document.getElementById('todo-items').appendChild(aTodo.render());
     }
-  },
-  deleteTodo: function() {}
+  }
 };
 
 var todoItem = {
@@ -22,13 +21,16 @@ var todoItem = {
   name: "",
   createdAt: new Date(),
   completedAt: null,
+
   setTodoText: function(text) {
     this.name = text;
   },
+
   completedButton: function() {
     var completedButton = document.createElement('button');
     completedButton.innerHTML = "Completed?";
     var thisItem = this;
+    completedButton.className = 'completed-button';
     completedButton.onclick = function() {
       thisItem.completedAt = new Date();
       thisTodoDiv = this.parentElement;
@@ -38,15 +40,18 @@ var todoItem = {
 
     return completedButton;
   },
+
   deleteButton: function() {
     var deleteButton = document.createElement('button');
     deleteButton.innerHTML = "Delete";
+    deleteButton.className = 'delete-button';
     deleteButton.onclick = function() {
       thisTodo = this.parentElement;
       thisTodo.parentElement.removeChild(thisTodo);
     };
     return deleteButton;
   },
+
   render: function() {
     // XXX
     // refactor this function to make it less verbose
@@ -85,8 +90,15 @@ function clone(aTodo) {
 window.onload = function() {
   addItemButton = document.getElementById('add-item');
   newTodoField = document.getElementById('new-todo-field');
+
   addItemButton.onclick = function() {
     todoApp.createTodo(newTodoField.value);
     newTodoField.value = "";
+  };
+
+  clearTasksButton = document.getElementById('clear-tasks');
+  clearTasksButton.onclick = function() {
+    document.getElementById('todo-items').innerHTML = '';
+    document.getElementById('completed-items').innerHTML = '';
   };
 };
