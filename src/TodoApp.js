@@ -34,4 +34,3 @@ TodoApp.create_unfinished_task = function(){
 
 
 
-
