@@ -1,15 +1,23 @@
 var TodoItem = function(content){
-  var el, completeButton, removeButton, todo;
+  var el, completeButton, removeButton, todo, createdEl;
   todo = this;
   if ( !content ) {
     throw new Error("Need to input something!");
   }
+
+  // object properties
   this.content = content;
+  this.createdAt = (new Date).toDateString() + " " + (new Date).toLocaleTimeString();
+  // Add to unfinished array
   TodoApp.unfinishedTasks.push(this);
 
   // DOM elements
   el = document.createElement("li");
   el.className = "items";
+  // children of el
+  createdEl = document.createElement("p");
+  createdEl.innerHTML = this.createdAt;
+  createdEl.className = "meta-data"
   completeButton = document.createElement("button");
   completeButton.innerHTML = "Complete";
   completeButton.className = "complete";
@@ -18,6 +26,7 @@ var TodoItem = function(content){
   removeButton.className = "delete";
 
   el.innerHTML = content;
+  el.appendChild(createdEl);
   el.appendChild(completeButton);
   el.appendChild(removeButton);
 
