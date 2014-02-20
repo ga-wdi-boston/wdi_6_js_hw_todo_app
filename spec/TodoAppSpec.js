@@ -1,3 +1,3 @@
-describe('TodoItem', function(){
+describe('TodoApp', function(){
 
 });
