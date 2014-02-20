@@ -1,4 +1,24 @@
 body{
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+header {
+	border: 1px solid red;
+	text-align: center;
+}
+
+header h1 {
+	font-size: 60px;
+	margin: 0;
+}
+
+
+
+
+
+
+
+/*body{
 	font-family: Helvetica, Arial, Sans-Serif;
 	background:#fafafa;
 	color:#808080;
@@ -88,3 +108,4 @@ li{
 h3{
 	color:#404040;
 }
+*/
