@@ -58,6 +58,8 @@ var TodoItem = function(content){
 
     this.parentNode.remove();
   };
+
+  this.element = el;
   return el;
 };
 

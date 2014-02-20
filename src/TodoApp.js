@@ -15,5 +15,25 @@ var TodoApp = {
     } catch (e) {
       error.innerHTML = e;
     }
+  },
+  sort            : function (list, field, listId) {
+    var length, i, el, domList;
+    i = 0;
+    domList = document.getElementById(listId);
+    list.sort(function (a,b) {
+      if (a[field] > b[field])
+        return 1;
+      if (a[field] < b[field])
+        return -1;
+      // a must be equal to b
+      return 0;
+    });
+    // update DOM
+    length = list.length;
+    for (; i < length;) {
+      el = list[i].element;
+      domList.appendChild(el);
+      i = i + 1;
+    }
   }
 };
