@@ -1,9 +1,23 @@
 var TodoItem = function(content){
+  var el, completeButton, removeButton;
   if ( !content ) {
     throw new Error("invalid");
   }
   this.content = content;
   TodoApp.unfinishedTasks.push(this);
+
+  // DOM elements
+  el = document.createElement("li");
+  completeButton = document.createElement("button");
+  completeButton.value = "Complete";
+  completeButton.className = "complete";
+  removeButton = document.createElement("button");
+  removeButton.value = "Remove";
+  removeButton.className = "remove";
+
+  el.innerHTML = content;
+  el.children = [completeButton, removeButton];
+  return el;
 };
 
 
