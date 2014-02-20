@@ -1,5 +1,10 @@
 var TodoItem = function(text){
-	this.text = text;
+	if (text) {
+		this.text = text;
+	} else {
+		alert('Your to-do must have text!');
+		throw new Error('Your to-do must have text!');
+	};
 
 };
 
