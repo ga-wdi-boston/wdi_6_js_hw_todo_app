@@ -1,7 +1,10 @@
 describe('TodoItem', function(){
+  var item, item2;
   beforeEach(function(){
-    item = new TodoItem("homework")
-    item2 = new TodoItem("laundry")
+    TodoApp.unfinishedTasks = [];
+    TodoApp.finishedTasks = [];
+    item = new TodoItem("homework");
+    item2 = new TodoItem("laundry");
   });
 
   describe("new", function(){
@@ -17,6 +20,14 @@ describe('TodoItem', function(){
 
     it("adds items to TodoApp unfinishedTasks array", function(){
       expect(TodoApp.unfinishedTasks).toContain(item, item2);
+    });
+
+    describe("#complete", function(){
+      it("moves item from unfinishedTasks to finishedTasks", function(){
+        item.complete();
+        expect(TodoApp.unfinishedTasks).not.toContain(item);
+        expect(TodoApp.finishedTasks).toContain(item);
+      });
     });
   });
 });
