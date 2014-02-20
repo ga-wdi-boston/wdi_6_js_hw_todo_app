@@ -8,4 +8,5 @@ window.onload = function(){
     item.value = '';
     list.appendChild(el);
   };
+
 };
