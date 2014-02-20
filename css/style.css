@@ -4,8 +4,8 @@ body{
 	color:#808080;
 }
 
-#container{
-	width:1000px;
+.container{
+	width:80%;
 	margin:auto;
 }
 
@@ -34,7 +34,7 @@ p{
 
 #unfinished, #finished{
 	margin:10px 0 10px 0;
-	padding:10px 40px 10px 10px;
+	padding: 20px 50px;
 	background:#404040;
 	color:#eeeeee;
 }
@@ -81,7 +81,13 @@ button{
 	background:#4040ff;
 }
 
-li{
+.task-info li {
+	display: inline-block;
+	min-width: 200px;
+}
+
+
+li {
 	margin:5px;
 }
 
