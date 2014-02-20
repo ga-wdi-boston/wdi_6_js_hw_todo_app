@@ -8,15 +8,17 @@ var TodoItem = function(content){
 
   // DOM elements
   el = document.createElement("li");
+  el.className = "items";
   completeButton = document.createElement("button");
   completeButton.value = "Complete";
   completeButton.className = "complete";
   removeButton = document.createElement("button");
   removeButton.value = "Remove";
-  removeButton.className = "remove";
+  removeButton.className = "delete";
 
   el.innerHTML = content;
-  el.children = [completeButton, removeButton];
+  el.appendChild(completeButton);
+  el.appendChild(removeButton);
   return el;
 };
 
