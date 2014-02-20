@@ -15,6 +15,7 @@ TodoApp.add_to_list = function(list, type) {
 	if(new_li.innerHTML !== "") {
 		list.appendChild(new_li);
 		new_li.appendChild(new_one.delete_button());
+		new_li.appendChild(new_one.move_button());
 	};
 	return false;
 };
