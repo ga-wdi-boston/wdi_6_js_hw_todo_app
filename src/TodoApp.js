@@ -1,3 +1,4 @@
 var TodoApp = {
-
+  unfinishedTasks : [],
+  finishedTasks   : []
 };
