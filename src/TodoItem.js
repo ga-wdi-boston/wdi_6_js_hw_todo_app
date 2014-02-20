@@ -2,6 +2,8 @@ var TodoItem = function(text){
 	if(typeof(text) === 'string' && text.length > 0){
 		this.text = text;
 		this.date_created = new Date();
+		this.deleted = false;
+		this.completed = false;
 	} else {
 		throw new Error('Task is empty');
 	}
@@ -9,39 +11,58 @@ var TodoItem = function(text){
 
 TodoItem.prototype = {
 
-	delete_button: function(){
-		var new_li = document.createElement('li');
-		var delete_button = document.createElement('button');
-		delete_button.innerHTML = 'Delete';
-		delete_button.className = 'delete';
-		delete_button.onclick = function(event){
+	create_button: function(type){
+		var button = document.createElement('button');
+		button.innerHTML = type.toUpperCase();
+		button.className = type;
+		var original_item = this;
+		button.onclick = function(event){
 			event.preventDefault();
-			TodoApp.deleteTodo(this.parentNode.parentNode.parentNode, this.parentNode.parentNode.parentNode.parentNode);
+
+			if(type === 'delete'){
+				original_item.delete();
+			} else if(type === 'complete') {
+				original_item.complete();
+			};
+
+			TodoApp.renderLists();
 			return false;
 		};
+		return button;
+	},
 
+	delete: function(){
+		this.deleted = true;
+	},
+
+	complete: function() {
+		this.completed = true;
+		this.date_completed = new Date();
+	},
+
+	delete_button: function(){
+		var new_li = document.createElement('li');
+		delete_button = this.create_button('delete');
 		new_li.appendChild(delete_button);
 		return new_li;
 	},
 
 	complete_button: function(){
 		var new_li = document.createElement('li');
-		var complete_button = document.createElement('button');
-		complete_button.innerHTML = 'Done';
-		complete_button.className = 'complete';
-		complete_button.onclick = function(event){
-			event.preventDefault();
-			TodoApp.completeTodo(this.parentNode.parentNode.parentNode);
-			return false;
-		};
+		var complete_button = this.create_button('complete');
 		new_li.appendChild(complete_button);
 		return new_li;
-
 	},
 
 	display_text: function(){
-		var new_li = document.createElement('li');
-		new_li.innerHTML = this.text + ' | (Created ' + this.date_created + ')';
+		var new_li = document.createElement('li'), date;
+
+		if(this.date_completed) {
+			date = 'Completed ' + this.date_completed;
+		} else {
+			date = 'Created ' + this.date_created;
+		};
+		new_li.innerHTML = this.text + ' | (' + date + ')';
 		return new_li;
 	},
 
@@ -54,13 +75,10 @@ TodoItem.prototype = {
 		new_task.appendChild(sub_list);
 		sub_list.appendChild(this.display_text());
 		sub_list.appendChild(this.delete_button());
-		sub_list.appendChild(this.complete_button());
-
+		if(this.completed !== true) {
+			sub_list.appendChild(this.complete_button());
+		};
 		return new_task;
 	},
 
-	complete_me: function(){
-		this.date_completed = new Date();
-	}
-
-}
+};
