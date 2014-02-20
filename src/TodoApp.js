@@ -1,7 +1,6 @@
 window.onload = function() {
-  var list = document.getElementById('unfinished');
-  TodoApp.store_unfinished();
-  TodoApp.store_finished();
+  var list = document.getElementById('unfinished'),
+  finished_list = document.getElementById('finished');
   button = document.getElementById('add-item');
   button.onclick = function(event) {
     event.preventDefault();
@@ -17,16 +16,18 @@ var TodoApp = {
 
 TodoApp.add_to_list = function(list, todo) {
   var new_item = todo.render();
-  list.appendChild(new_item);
-  return false;
+  if (new_item.innerHTML !== "") {
+    list.appendChild(new_item);
+  };
+  return true;
 };
 
 TodoApp.store_unfinished = function() {
-  var unfinished_todos = document.getElementsByClassName('items');
+  return document.getElementById('unfinished').children;
 };
 
 TodoApp.store_finished = function() {
-  var finished_todos = document.getElementById('finished').children;
+  return document.getElementById('finished').children;
 };
 
 // TodoApp.add_to_bad_list = function(list) {
