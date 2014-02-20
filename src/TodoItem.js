@@ -7,7 +7,7 @@ var TodoItem = function(content){
 
   // object properties
   this.content = content;
-  this.createdAt = (new Date).toDateString() + " " + (new Date).toLocaleTimeString();
+  this.createdAt = new Date();
   // Add to unfinished array
   TodoApp.unfinishedTasks.push(this);
 
@@ -16,8 +16,8 @@ var TodoItem = function(content){
   el.className = "items";
   // children of el
   createdEl = document.createElement("p");
-  createdEl.innerHTML = this.createdAt;
-  createdEl.className = "meta-data"
+  createdEl.innerHTML = "Created At: " + this.createdAt.toDateString() + " " + this.createdAt.toLocaleTimeString();
+  createdEl.className = "meta-data";
   completeButton = document.createElement("button");
   completeButton.innerHTML = "Complete";
   completeButton.className = "complete";
@@ -34,9 +34,16 @@ var TodoItem = function(content){
   /////// Event Handlers ////////
   // clickon completeButton
   completeButton.onclick = function (e) {
-    var completedList = document.getElementById('finished');
+    var completedList, date;
+    completedList = document.getElementById('finished');
     e.preventDefault();
 
+    todo.completedAt = new Date();
+    date = document.createElement("p");
+    date.innerHTML = "Completed At: " + todo.completedAt.toDateString() + " " + todo.completedAt.toLocaleTimeString();
+    date.className = "meta-data";
+    this.parentNode.appendChild(date);
+    createdEl.remove();
     todo.complete();
 
     completedList.appendChild(this.parentNode);
