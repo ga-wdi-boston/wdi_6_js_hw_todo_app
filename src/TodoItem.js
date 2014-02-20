@@ -2,7 +2,7 @@ var TodoItem = function(content){
   var el, completeButton, removeButton, todo;
   todo = this;
   if ( !content ) {
-    throw new Error("invalid");
+    throw new Error("Need to input something!");
   }
   this.content = content;
   TodoApp.unfinishedTasks.push(this);
@@ -20,6 +20,7 @@ var TodoItem = function(content){
   el.innerHTML = content;
   el.appendChild(completeButton);
   el.appendChild(removeButton);
+
 
   /////// Event Handlers ////////
   // clickon completeButton

@@ -15,7 +15,7 @@ describe('TodoItem', function(){
     it("throws an error with 0 args", function(){
       expect(function(){
         new TodoItem();
-      }).toThrowError("invalid");
+      }).toThrowError("Need to input something!");
     });
 
     it("adds items to TodoApp unfinishedTasks array", function(){

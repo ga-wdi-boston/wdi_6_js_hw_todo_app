@@ -88,3 +88,7 @@ li{
 h3{
 	color:#404040;
 }
+
+#error {
+	color: red;
+}
