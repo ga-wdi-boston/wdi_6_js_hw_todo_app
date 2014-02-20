@@ -6,12 +6,21 @@
   <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="src/TodoApp.js"></script>
   <script type="text/javascript" src="src/TodoItem.js"></script>
+  <script type="text/javascript" src="src/DomFunctions.js"></script>
 </head>
 <body>
   <h1>JS Todo App</h1>
   <form id="taskForm">
     <input type="text" placeholder="Task description" id="taskField">
-    <input type="submit" text="Create Task" id="submitNew">
+    <input type="submit" value="Create Task" id="submitNew">
   </form>
+  <div id="unfinished">
+    <ul id="unfinishedList">
+    </ul>
+  </div>
+  <div id="finished">
+    <ul id="finishedList">
+    </ul>
+  </div>
 </body>
 </html>

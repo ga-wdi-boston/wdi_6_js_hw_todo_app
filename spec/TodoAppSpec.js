@@ -1,7 +1,10 @@
 describe("TodoApp", function(){
+  var buyCheese,
+      fakeField,
+      milk,
+      watermelon;
+
   describe(".makeTodoItem()", function() {
-    var buyCheese,
-        fakeField;
 
     beforeEach(function() {
       buyCheese = TodoApp.makeTodoItem("Buy cheese");
@@ -40,12 +43,35 @@ describe("TodoApp", function(){
       expect(TodoApp.getUserInput).toHaveBeenCalled();
       expect(TodoApp.makeTodoItem).toHaveBeenCalledWith("Buy mangos");
     });
-    it("should create a new TodoItem in the unfinishtedItems array", function()
-    {
+    it("should create a new TodoItem in the unfinishtedItems array",
+    function() {
       TodoApp.unfinishedItems = [];
       TodoApp.onSubmitNew();
 
       expect(TodoApp.unfinishedItems[0].task).toEqual("Buy mangos");
+    });
+  });
+  describe(".finishTodo()", function() {
+    beforeEach(function() {
+      TodoApp.unfinishedItems = [];
+      TodoApp.finishedItems = [];
+      milk = TodoApp.makeTodoItem("Buy milk");
+      watermelon = TodoApp.makeTodoItem("Buy watermelon");
+    });
+
+    it("should find a TodoItem by task and remove it from unfinishedItems",
+    function() {
+      TodoApp.finishTodo(milk);
+      expect(TodoApp.finishedItems).toContain(milk);
+      expect(TodoApp.unfinishedItems).not.toContain(milk);
+      expect(TodoApp.unfinishedItems).toContain(watermelon);
+    });
+
+    it("should not remove a TodoItem if the task does not exist", function() {
+      TodoApp.finishTodo("Punt kittens");
+      expect(TodoApp.finishedItems).toEqual([]);
+      expect(TodoApp.unfinishedItems).toContain(milk);
+      expect(TodoApp.unfinishedItems).toContain(watermelon);
     });
   });
 });
