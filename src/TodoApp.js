@@ -1,8 +1,8 @@
 var TodoApp = {
   makeTodoItem: function(task) {
     var newTodo = new TodoItem(task);
-    TodoApp.unfinishedItems.push(newTodo);
-    TodoApp.addTodo("unfinishedList", newTodo);
+    TodoApp.todoItems.push(newTodo);
+    this.renderTodos();
     return newTodo;
   },
   getUserInput: function() {
@@ -16,46 +16,33 @@ var TodoApp = {
     return true;
   },
   finishTodo: function(todo) {
-    function moveTask(element, index, array) {
-      if (element.task === todo.task) {
-        TodoApp.finishedItems.push(TodoApp.unfinishedItems.splice(index,1)[0]);
-        return true; // This stops the some iteration immediately
-      }
-    }
-    this.unfinishedItems.some(moveTask);
+    todo.status = "finished";
+    this.renderTodos();
   },
   deleteTodo: function(todo) {
     function deleteTask(element, index, array) {
-      if (element.task === todo.task) {
-        TodoApp.unfinishedItems.splice(index,1)[0];
+      if (element === todo) {
+        TodoApp.todoItems.splice(index,1);
         return true;
       }
     }
-    this.unfinishedItems.some(deleteTask);
+    this.todoItems.some(deleteTask);
+    this.renderTodos();
   },
   renderTodos: function() {
     var unfinishedList = document.getElementById("unfinishedList"),
         finishedList = document.getElementById("finishedList");
 
-    var renderUnfinished = function (todoItem, index, array) {
-      unfinishedList.appendChild(todoItem.renderSelf());
-    };
-    var renderFinished = function(todoItem, index, array) {
-      finishedList.appendChild(todoItem.renderSelf());
+    var renderOne = function(todoItem, index, array) {
+      if (todoItem.status === "unfinished") {
+        unfinishedList.appendChild(todoItem.renderSelf());
+      } else {
+        finishedList.appendChild(todoItem.renderSelf());
+      }
     };
     unfinishedList.innerHTML = "";
-    this.unfinishedItems.forEach(renderUnfinished)
-    finishedList.innerHTML = "";
-    this.finishedItems.forEach(renderFinished);
+    finishedList.innerHTML   = "";
+    this.todoItems.forEach(renderOne);
   },
-  addTodo: function(list, todo) {
-    var whichList = document.getElementById(list); // unfinishedList or finishedList
-    whichList.appendChild(todo.renderSelf());
-    this.renderTodos();
-  },
-  deleteTodo: function(list, todo) {
-
-  },
-  unfinishedItems: [],
-  finishedItems:   []
+  todoItems: []
 };

@@ -14,7 +14,7 @@ describe("TodoApp", function(){
       expect(buyCheese.__proto__).toEqual(TodoItem.prototype);
     });
     it("should store each unfinished TodoItem in a unfinishedItems property array", function() {
-      expect(TodoApp.unfinishedItems).toContain(buyCheese);
+      expect(TodoApp.todoItems).toContain(buyCheese);
     });
   });
 
@@ -45,16 +45,15 @@ describe("TodoApp", function(){
     });
     it("should create a new TodoItem in the unfinishtedItems array",
     function() {
-      TodoApp.unfinishedItems = [];
+      TodoApp.todoItems = [];
       TodoApp.onSubmitNew();
 
-      expect(TodoApp.unfinishedItems[0].task).toEqual("Buy mangos");
+      expect(TodoApp.todoItems[0].task).toEqual("Buy mangos");
     });
   });
   describe(".finishTodo()", function() {
     beforeEach(function() {
-      TodoApp.unfinishedItems = [];
-      TodoApp.finishedItems = [];
+      TodoApp.todoItems = [];
       milk = TodoApp.makeTodoItem("Buy milk");
       watermelon = TodoApp.makeTodoItem("Buy watermelon");
     });
