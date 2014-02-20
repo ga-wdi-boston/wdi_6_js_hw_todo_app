@@ -43,7 +43,6 @@ var TodoItem = function(content){
     date.innerHTML = "Completed At: " + todo.completedAt.toDateString() + " " + todo.completedAt.toLocaleTimeString();
     date.className = "meta-data";
     this.parentNode.appendChild(date);
-    createdEl.remove();
     todo.complete();
 
     completedList.appendChild(this.parentNode);
