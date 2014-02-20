@@ -1,24 +1,65 @@
 window.onload = function() {
+	//Set variables
 	var add_button,
 		to_do_list,
 		complete_button,
 		delete_button;
 
+	// set to do list variable
 	to_do_list = document.getElementById('unfinished-items');
+
 
 	add_button = document.getElementById('add-item');
 	add_button.onclick = function(event) {
 		event.preventDefault();
 		TodoApp.new_item(to_do_list);
+
+		// complete_buttons = document.getElementsByClassName('complete');
+		// for (var i=0; i < complete_buttons.length; i++) {
+		//   complete_buttons[i].onclick = function(event){
+		//   	list_item = this.parentNode.parentNode;
+		//   	TodoApp.complete_item(list_item);
+		//   	//TodoApp.popup();
+
+		//   	delete_buttons = document.getElementsByClassName('delete');
+		//   	for (var i=0; i < delete_buttons.length; i++) {
+		//   	  delete_buttons[i].onclick = function(event){
+		//   	  	list_item = this.parentNode.parentNode;
+		//   	  	TodoApp.delete_item(list_item);
+		//   	  };
+		//   	};
+		//   };
+		// }
+
+		// delete_buttons = document.getElementsByClassName('delete');
+		// for (var i=0; i < delete_buttons.length; i++) {
+		//   delete_buttons[i].onclick = function(event){
+		//   	list_item = this.parentNode.parentNode;
+		//   	TodoApp.delete_item(list_item);
+		//   };
+		// };
+
 		return false;
 	};
 
-	complete_button = document.getElementsByClassName('complete');
-	complete_button.onclick = function(event) {
-		// event.preventDefault();
-		TodoApp.popup();
-		return false;
-	};
+	// complete_buttons = document.getElementsByClassName('complete');
+	// for (var i=0; i < complete_buttons.length; i++) {
+	//   complete_buttons[i].onclick = function(event){
+	//   	//TodoApp.popup();
+	//   	list_item = this.parentNode.parentNode;
+	//   	TodoApp.complete_item(list_item);
+	//   };
+	// };
+
+
+	// delete_buttons = document.getElementsByClassName('delete');
+	// for (var i=0; i < delete_buttons.length; i++) {
+	//   delete_buttons[i].onclick = function(event){
+	//   	//TodoApp.popup();
+	//   	list_item = this.parentNode.parentNode;
+	//   	TodoApp.delete_item(list_item);
+	//   };
+	// };
 
 
 };
