@@ -11,7 +11,7 @@ TodoItem.prototype.delete_button = function() {
 		this.parentNode.remove();
 		return false;
 	};
-	return new_delete_button
+	return new_delete_button;
 };
 
 TodoItem.prototype.move_button = function() {
@@ -22,7 +22,8 @@ TodoItem.prototype.move_button = function() {
 	new_move_button.onclick = function(event) {
 		event.preventDefault();
 		finished_tasks.appendChild(this.parentNode);
+		this.remove();
 		return false;
 	};
-	return new_move_button
+	return new_move_button;
 };
