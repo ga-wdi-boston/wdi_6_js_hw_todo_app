@@ -1,20 +1,37 @@
-body{
+body, input {
 	font-family: 'Alegreya Sans', sans-serif;
 }
 
-header {
+div#header {
 	border: 1px solid red;
 	text-align: center;
 }
 
-header h1 {
+div#header h1 {
 	font-size: 60px;
-	margin: 0;
+	margin: 25px 0;
 }
 
+div#new-task-field {
+	border: 1px solid blue;
+	text-align: center;
+	padding: 10px 0;
+}
 
+#new-thing-label {
+	font-size: 40px;
+	margin: 0px 20px;
+}
 
+#new-thing-textbox {
+	font-size: 30px;
+	margin: 0px 20px;
+}
 
+#new-thing-button {
+	font-size: 30px;
+	margin: 0px 20px;
+}
 
 
 
