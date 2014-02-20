@@ -11,10 +11,10 @@ var TodoItem = function(content){
   el = document.createElement("li");
   el.className = "items";
   completeButton = document.createElement("button");
-  completeButton.value = "Complete";
+  completeButton.innerHTML = "Complete";
   completeButton.className = "complete";
   removeButton = document.createElement("button");
-  removeButton.value = "Remove";
+  removeButton.innerHTML = "Remove";
   removeButton.className = "delete";
 
   el.innerHTML = content;
