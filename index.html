@@ -3,11 +3,30 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>JS Todo App</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="src/TodoApp.js"></script>
   <script type="text/javascript" src="src/TodoItem.js"></script>
+
 </head>
 <body>
-  <h1>JS Todo App</h1>
+  <div class="container">
+  	<h1>JS Todo App</h1>
+  	<h3>add an item to the list</h3>
+  	<form>
+  		<input class="form-item" id="list-item" autofocus=true>
+  		<input class="form-button" type="submit" id="button" value="Add item" >
+  	</form>
+  	<div class="col-md-6">
+  		<h1>To Do:</h1>
+  		<ul class="list" id="todo-list">
+  		</ul>
+  	</div>
+  	<div class="col-md-6">
+  		<h1>Completed Tasks</h1>
+  		<ul class="list" id="completed-list"></ul>
+  	</div>
+  </div>
 </body>
 </html>

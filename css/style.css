@@ -60,9 +60,9 @@ button{
 	background:#eecccc;
 }
 
-.complete{
+/*.complete{
 	background:#eeeeee;
-}
+}*/
 
 #add-item{
 	background:#6060ff;
@@ -73,18 +73,33 @@ button{
 	background:#ff6060;
 }
 
-.complete:hover{
+/*.complete:hover{
 	background:#80ff80;
-}
+}*/
 
 #add-item:hover{
 	background:#4040ff;
 }
 
 li{
-	margin:5px;
+	margin:15px;
 }
 
 h3{
 	color:#404040;
+}
+
+.complete {
+	margin-left: 10px;
+	color: tomato;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+.delete {
+	margin-left: 10px;
+	background-color: tomato;
+	color:#fff;
+	font-size: 10px;
+	padding: 2px 4px;
+	text-decoration: none;
 }
