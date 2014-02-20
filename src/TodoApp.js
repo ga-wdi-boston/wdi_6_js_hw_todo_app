@@ -13,7 +13,7 @@ TodoApp.new_item = function(list) {
 	new_item = new TodoItem(new_item_text);
 	todo_html = new_item.render();
 	list.appendChild(todo_html);
-}
+};
 
 TodoApp.complete_item = function(list_item) {
 
@@ -21,8 +21,7 @@ TodoApp.complete_item = function(list_item) {
 	list_item.parentNode.removeChild(list_item);
 	new_li = TodoApp.change_item(list_item);
 	new_list.appendChild(new_li);
-
-}
+};
 
 TodoApp.change_item = function(list_item) {
 	var button = document.createElement('button');
@@ -34,18 +33,9 @@ TodoApp.change_item = function(list_item) {
 	span.removeChild(old_button);
 	//span.appendChild(button);
 	return list_item;
-}
+};
 
 TodoApp.delete_item = function(list_item) {
 	list_item.parentNode.removeChild(list_item);
-}
+};
 
-
-
-
-	// var new_li = document.createElement('li'),
-	// 	new_item_text = document.getElementById('new-task-field').value;
-	// new_li.innerHTML = new_item_text;
-	// new_li.className = 'items';
-	// new_li.create
-	// list.appendChild(new_li);
