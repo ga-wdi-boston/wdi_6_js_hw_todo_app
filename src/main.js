@@ -10,8 +10,4 @@ window.onload = function() {
     return false;
   };
 
-  // Calling to delete an existed item in the unfinished list
-
-
-
 }
