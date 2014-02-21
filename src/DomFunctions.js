@@ -17,8 +17,3 @@ window.onload = function() {
   }
 }
 
-// Emily was incensed I used capitalized class names, so this hack allows
-// button value="Completed" to translate to class="completed"
-String.prototype.capitalize = function() {
-  return this.charAt(0).toUpperCase() + this.slice(1);
-};
