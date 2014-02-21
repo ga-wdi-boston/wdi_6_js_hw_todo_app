@@ -1,7 +1,6 @@
 window.onload = function() {
 	var add_item_button = document.getElementById('new-thing-button');
 
-	// add new item
 	add_item_button.onclick = function(event) {
 		event.preventDefault();
 		TodoApp.add_to_unfinished_list();
@@ -16,23 +15,26 @@ var TodoApp = {
 				new_span = document.createElement('span'),
 
 				new_item_text = document.getElementById('new-thing-input'),
-				unfinished_list = document.getElementById('unfinished-items');
+				unfinished_list = document.getElementById('unfinished-items'),
+
+				new_done_button = this.create_new_done_button(),
+				new_delete_button = this.create_new_delete_button();
 
 		if (new_item_text.value !== "") {
-
 
 			new_li.className = "item";
 			new_span.className = "item-text";
 			new_span.innerHTML = new_item_text.value;
 
-			var new_delete_button = this.create_new_delete_button();
-
 		  unfinished_list.appendChild(new_li);
 		  new_li.appendChild(new_span);
+		  new_li.appendChild(new_done_button);
 		  new_li.appendChild(new_delete_button);
 
 			new_item_text.value = "";
 		};
+
+		return false;
 	},
 
 
@@ -49,6 +51,22 @@ var TodoApp = {
 		};
 
 		return new_delete_button;
+	},
+
+
+	create_new_done_button: function() {
+		var new_done_button = document.createElement('button');
+
+		new_done_button.className = "done";
+		new_done_button.innerHTML = "done!";
+
+		new_done_button.onclick = function(event) {
+			event.preventDefault();
+			this.parentNode.parentNode.removeChild(this.parentNode);
+			return false;
+		};
+
+		return new_done_button;
 	}
 
 
