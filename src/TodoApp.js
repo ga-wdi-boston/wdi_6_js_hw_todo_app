@@ -7,15 +7,16 @@ var TodoApp = {
 
 				new_content = document.getElementById('list-item').value,
 				todo = new TodoItem(new_content);
+				this.task_array.push(todo);
 
 		new_item.appendChild(new_link);
 		new_item.appendChild(delete_btn);
-		new_item.children[0].innerHTML = todo.body ;
+		new_item.children[0].innerHTML = todo.body + '<span class="meta-data">' + todo.created_at + '</span>' ;
 		new_item.children[1].innerHTML = "X" ;
 		new_item.children[0].href = "#";
 		new_item.children[1].href = "#";
 		new_item.children[0].setAttribute("class", "complete");
-		new_item.children[1].setAttribute("class", "delete");
+		new_item.children[1].setAttribute("class", "btn delete");
 
 		new_item.children[0].onclick = function(e) {
 			var todo_list = document.getElementById('todo-list')
@@ -51,6 +52,8 @@ var TodoApp = {
 		return false;
 	}
 };
+
+TodoApp.task_array = [];
 
 window.onload = function() {
 	var todo_list = document.getElementById('todo-list'),
