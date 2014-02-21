@@ -5,8 +5,12 @@ body, input, button {
 }
 
 div#header {
-	/*border: 1px solid red;*/
 	text-align: center;
+	  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+	  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+	  color:transparent;
+	  -webkit-background-clip: text;
+	  background-clip: text;
 }
 
 div#header h1 {
@@ -15,35 +19,31 @@ div#header h1 {
 }
 
 div#new-task-field {
-	/*border: 1px solid blue;*/
 	text-align: center;
-	padding: 20px 0 30px 0;
+	padding: 20px 0 40px 0;
 }
 
 span#new-thing-label {
 	font-size: 30px;
-	margin: 0px 20px;
+	margin: 0 5px 0 0;
 }
 
 input#new-thing-input {
 	font-size: 20px;
-	margin: 0px 20px;
+	margin: 0 10px 0 0;
 }
 
 input#new-thing-button {
 	font-size: 20px;
-	margin: 0px 20px;
+	margin: 0;
+	padding: 0 10px;
 }
 
 div#container {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
-	/*width: 100%;*/
-	/*position: relative;*/
-	/*border: 1px solid purple;*/
 	min-height: 300px;
-	/*text-align: center;*/
 }
 
 div div.half-container {
@@ -52,8 +52,6 @@ div div.half-container {
 	box-sizing: border-box;         /* Opera/IE 8+ */
 	padding: 10px 30px;
 	width: 50%;
-	/*border: 1px solid orange;*/
-	/*text-align: center;*/
 }
 
 div div div.half-container-2 {
@@ -61,20 +59,20 @@ div div div.half-container-2 {
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
 	margin: 0 auto;
-	/*border: 1px solid red;*/
 	display: inline-block;
 	text-align: left;
-	/*min-width: 60%;*/
 }
 
 div div#left {
 	float: left;
 	text-align:right;
+	padding-right: 100px;
 }
 
 div div#right {
 	float: right;
 	text-align:left;
+	padding-left: 100px;
 }
 
 h2.half-header {
@@ -94,7 +92,6 @@ h3.half-slogan {
 }
 
 ul.list-of-items{
-	/*border: 1px solid red;*/
 	font-size: 20px;
 	margin: 10px 0;
 }
