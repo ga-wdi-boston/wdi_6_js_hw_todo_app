@@ -11,16 +11,21 @@ var TodoItem = function(body, options){
 
 TodoItem.prototype = {
 	add_self: function() {
-		var list_item = document.createElement('li');
+		var list_item = document.createElement('li'),
+				task = this;
 
 		list_item.innerHTML = this.body;
-		TodoApp.task_array.push(this);
-		this.complete_button(list_item, this);
-		this.delete_button(list_item, this);
+		//TodoApp.task_array.push(this);
+		this.complete_button(list_item, task);
+		this.delete_button(list_item, task);
 		return list_item;
 	},
 	complete_button: function(list, item) {
 		var element = document.createElement('a');
+		element.setAttribute("class", "text-primary my_btn");
+		if (item.status === "completed"){
+			element.setAttribute("class", "hidden");
+		}
 		element.innerHTML = "Complete";
 		list.appendChild(element);
 		list.children[0].onclick = function(e) {
@@ -30,6 +35,7 @@ TodoItem.prototype = {
 	},
 	delete_button: function(list, item) {
 		var element2 = document.createElement('a');
+		element2.setAttribute("class", "text-danger my_btn");
 		element2.innerHTML = "Delete";
 		list.appendChild(element2);
 		list.children[1].onclick = function(e) {

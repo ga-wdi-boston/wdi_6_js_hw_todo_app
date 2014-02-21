@@ -9,10 +9,11 @@ window.onload = function() {
 
 	add_button.onclick = function(e) {
 		e.preventDefault();
-		var new_content = document.getElementById('list-item').value,
-				todo = new TodoItem(new_content);
+		var new_content = document.getElementById('list-item').value;
+		var todo = new TodoItem(new_content)
 
-		todo.add_self();
+		//todo.add_self();
+		TodoApp.task_array.push(todo);
 		TodoApp.render_todo(TodoApp.task_array)
 		return false;
 	};
@@ -29,9 +30,10 @@ TodoApp.render_todo = function(array) {
 	for(;i<l;) {
 		if (array[i].status === "todo") {
 			todo_list.appendChild(array[i].add_self());
-		} else {
+		} else if (array[i].status === "completed") {
 			completed_list.appendChild(array[i].add_self());
 		}
 		i = i + 1;
 	};
 }
+
