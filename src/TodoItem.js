@@ -4,26 +4,11 @@ var TodoItem = function(task){
   }
   var todo, completeButton, deleteButton;
 
-  self = this; // use to pass to onclicks
-
-  completeButton = document.createElement("button");
-  completeButton.type = "submit";
-  completeButton.className = "complete btn btn-success";
-  completeButton.innerHTML = "<span class='glyphicon glyphicon-ok'></span>";
-
-  deleteButton = document.createElement("button");
-  deleteButton.type = "submit";
-  deleteButton.className = "delete btn btn-danger";
-  deleteButton.innerHTML = "<span class='glyphicon glyphicon-remove'></span>";
-
   this.task = task;
   this.status = "unfinished";
   this.createdAt = new Date();
   this.completedAt = null;
-  this.buttons = {
-    complete: completeButton,
-    delete: deleteButton
-  };
+  this.buttons = this.makeButtons(); // generate object of generic buttons
 };
 
 TodoItem.prototype = {
@@ -44,7 +29,6 @@ TodoItem.prototype = {
     };
 
     // Create inner text from task name and date
-
     setInner = function(date) {
       var formattedDate = (date.getMonth() + 1) + "." + date.getDate(),
           displayText = document.createElement("p");
@@ -64,5 +48,17 @@ TodoItem.prototype = {
     itemNode.appendChild(buttons.delete);
 
     return itemNode;
+  },
+  makeButtons: function() {
+    var completeButton = document.createElement("button"),
+        deleteButton   = document.createElement("button");
+
+    completeButton.className = "complete btn btn-success";
+    completeButton.innerHTML = "<span class='glyphicon glyphicon-ok'></span>";
+
+    deleteButton.className = "delete btn btn-danger";
+    deleteButton.innerHTML = "<span class='glyphicon glyphicon-remove'></span>";
+
+    return {complete: completeButton, delete: deleteButton};
   }
 };
