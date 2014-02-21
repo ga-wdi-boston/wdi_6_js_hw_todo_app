@@ -1,30 +1,3 @@
-window.onload = function(){
-	var unfinishedButton = document.getElementById("submit");
-	var id = 0;
-	unfinishedButton.onclick = function(event){
-		event.preventDefault();
-		var that_id = 0;
-		var unfinishedList = document.getElementById("unfinished");
-		var i = 0;
-		var finishedList;
-		TodoApp.addToUnfinishedList(unfinishedList, id);
-		unfinishedListChildren = document.getElementById("unfinished").children;
-		while(i < unfinishedListChildren.length){
-			if(parseInt(unfinishedListChildren[i].id) === id){
-				that_id = i;
-			}
-			i++;
-		}
-		var finishedList = document.getElementById("finished");
-		TodoItem.addUnfinishedToFinished(unfinishedListChildren, finishedList, that_id);
-		TodoItem.deleteThisItem(that_id);
-		id += 3;
-		return false;
-	}
-	
-}
-
-
 var TodoApp = {
 };
 
