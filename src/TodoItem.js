@@ -14,7 +14,7 @@ TodoItem.prototype = {
 		var list_item = document.createElement('li'),
 				task = this;
 
-		list_item.innerHTML = this.body;
+		list_item.innerHTML = this.body + '<span class="meta-data">' + todo.created_at + '</span>';
 		//TodoApp.task_array.push(this);
 		this.complete_button(list_item, task);
 		this.delete_button(list_item, task);
@@ -28,7 +28,7 @@ TodoItem.prototype = {
 		}
 		element.innerHTML = "Complete";
 		list_item.appendChild(element);
-		list_item.children[0].onclick = function(e) {
+		list_item.children[1].onclick = function(e) {
 			e.preventDefault();
 			task.complete_self();
 		};
@@ -38,7 +38,7 @@ TodoItem.prototype = {
 		element2.setAttribute("class", "text-danger my_btn");
 		element2.innerHTML = "Delete";
 		list_item.appendChild(element2);
-		list_item.children[1].onclick = function(e) {
+		list_item.children[2].onclick = function(e) {
 			e.preventDefault();
 			task.delete_self();
 		};
@@ -48,7 +48,8 @@ TodoItem.prototype = {
 		TodoApp.render_todo(TodoApp.task_array);
 	},
 	delete_self: function() {
-		TodoApp.task_array.splice(this, 1);
+		var index = TodoApp.task_array.indexOf(this);
+		TodoApp.task_array.splice(index, 1);
 		TodoApp.render_todo(TodoApp.task_array);
 	}
 
