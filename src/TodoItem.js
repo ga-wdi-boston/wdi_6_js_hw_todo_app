@@ -19,6 +19,7 @@ TodoItem.prototype.render = function() {
     event.preventDefault;
     finished_list.appendChild(this.parentNode);
     this.remove();
+    return false;
   };
 
   delete_button.innerHTML = 'Delete';
@@ -28,6 +29,7 @@ TodoItem.prototype.render = function() {
   delete_button.onclick = function(event) {
     event.preventDefault;
     this.parentNode.remove();
+    return false;
   };
 
   new_item_text.value = '';

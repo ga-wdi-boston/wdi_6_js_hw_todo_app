@@ -21,11 +21,3 @@ TodoApp.add_to_list = function(list, todo) {
   };
   return true;
 };
-
-TodoApp.store_unfinished = function() {
-  return document.getElementById('unfinished').children;
-};
-
-TodoApp.store_finished = function() {
-  return document.getElementById('finished').children;
-};
