@@ -12,6 +12,12 @@ TodoItem.prototype.render = function() {
   complete_button.innerHTML = 'Complete';
   complete_button.className = 'complete';
   new_li.appendChild(complete_button);
+  complete_button.onclick = function(event) {
+    var finished_list = document.getElementById('finished');
+    event.preventDefault;
+    finished_list.appendChild(this.parentNode);
+    this.remove();
+  };
   delete_button.innerHTML = 'Delete';
   delete_button.className = 'delete';
   new_li.appendChild(delete_button);
