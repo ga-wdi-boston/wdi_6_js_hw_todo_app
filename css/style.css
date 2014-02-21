@@ -1,12 +1,27 @@
-body{
+body {
 	font-family: Helvetica, Arial, Sans-Serif;
-	background:#fafafa;
-	color:#808080;
+	color: black;
+	background: whitesmoke;
 }
 
-.container{
-	width:80%;
-	margin:auto;
+header {
+	padding-left: 10%;
+}
+
+.cursive {
+	font-family: 'Over the Rainbow', cursive;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.display {
+	width: 60%;
+	margin:50px auto;
+}
+
+button {
 }
 
 p{
@@ -16,14 +31,19 @@ p{
 #new-task-field{
 	padding:10px;
 	border:none;
-	width:789px;
-	margin:0 0 0 45px;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 .items{
 	padding:10px;
 	background: white;
 	color:#808080;
+}
+
+.item-text {
+	font-size: 120%;
+	color: white;
 }
 
 .meta-data{
@@ -33,7 +53,7 @@ p{
 }
 
 #unfinished, #finished{
-	margin:10px 0 10px 0;
+	margin:0 auto;
 	padding: 20px 50px;
 	background:#404040;
 	color:#eeeeee;
@@ -83,7 +103,7 @@ button{
 
 .task-info li {
 	display: inline-block;
-	min-width: 200px;
+/*	min-width: 200px;*/
 }
 
 

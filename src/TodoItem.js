@@ -14,7 +14,7 @@ TodoItem.prototype = {
 	create_button: function(type){
 		var button = document.createElement('button');
 		button.innerHTML = type.toUpperCase();
-		button.className = type;
+		button.className = 'btn btn-default ' + type;
 		var original_item = this;
 		button.onclick = function(event){
 			event.preventDefault();
@@ -56,6 +56,7 @@ TodoItem.prototype = {
 
 	display_text: function(){
 		var new_li = document.createElement('li'), date;
+		new_li.className = 'item-text';
 
 		if(this.date_completed) {
 			date = 'Completed ' + this.date_completed;
@@ -71,7 +72,7 @@ TodoItem.prototype = {
 
 		new_task = document.createElement('li');
 		sub_list = document.createElement('ul');
-		sub_list.class = 'task-info'
+		sub_list.className = 'task-info'
 		new_task.appendChild(sub_list);
 		sub_list.appendChild(this.display_text());
 		sub_list.appendChild(this.delete_button());

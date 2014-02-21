@@ -15,9 +15,11 @@ var TodoApp = {};
 TodoApp.tasks = [];
 
 TodoApp.renderLists = function() {
-	var i = 0, length = this.tasks.length;
-	var finished_list = document.getElementById('finished');
-	var unfinished_list = document.getElementById('unfinished');
+	var i, length, finished_list, unfinished_list
+	i = 0;
+	length = this.tasks.length;
+	finished_list = document.getElementById('finished');
+	unfinished_list = document.getElementById('unfinished');
 
 	finished_list.innerHTML = '';
 	unfinished_list.innerHTML = '';

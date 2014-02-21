@@ -3,37 +3,35 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>JS Todo App</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Over+the+Rainbow' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="src/TodoApp.js"></script>
   <script type="text/javascript" src="src/TodoItem.js"></script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-	<div class='container'>
-  	<h1>JS Todo App</h1>
+		<header>
+  		<h1 class='cursive'>JS Todo App</h1>
+  	</header>
 
-  	<div>
-  		<input id='new-task-field'>
-  		<input type='submit' value='Add' id='add-button'>
-  	</div>
+  	<div class='display '>
+  		<form class='text-right'>
+				<input id='new-task-field'>
+  			<input type='submit' value='Add' id='add-button' class='btn btn-default'>
+  		</form>
 
-  	<div>
-  		<h2>To Do</h2>
-  		<ul id='unfinished'>
-  		</ul>
-  	</div>
+	  	<div>
+	  		<h2 class='cursive text-right'>To Do</h2>
+	  		<ul id='unfinished'>
+	  		</ul>
+	  	</div>
 
-  	<div>
-  		<h2>Consider Done</h2>
-  		<ul id='finished'>
-  		</ul>
-  	</div>
-
-  	<div>
-  		<ul id='tester'>
-  		</ul>
-  	</div>
-
-
-  </div>
+	  	<div>
+	  		<h2 class='cursive text-right'>Done</h2>
+	  		<ul id='finished'>
+	  		</ul>
+	  	</div>
+	  </div>
 </body>
 </html>
