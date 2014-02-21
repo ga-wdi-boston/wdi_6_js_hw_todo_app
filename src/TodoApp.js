@@ -4,6 +4,7 @@ window.onload = function(){
 
   TodoApp.unfinished_list = document.getElementById('unfinished');
   TodoApp.finished_list = document.getElementById('finished');
+  // TodoApp.items = document.getElementsbyClassName('items')
 
   TodoApp.button = document.getElementById('new-unfinished-item-button');
   TodoApp.button2 = document.getElementById('new-finished-item-button');
@@ -22,25 +23,28 @@ window.onload = function(){
 };
 
 TodoApp.add_to_list = function(list) {
-  var new_li = document.createElement('li'), // Create a new generic list item
+      var input_field = event.target.previousElementSibling; // For the button that is clicked (the event.target), find its prior sibling (text box)
+      var new_item = new TodoItem();
 
-      // For the button that is clicked (the event.target), find its prior sibling (text box)
-      new_li_text = event.target.previousElementSibling;
-  new_li.innerHTML = new_li_text.value;
-  new_li_text.value = "";
-  new_li.onclick = function(event) {
-    TodoApp.toggle_position(event);
-  }
-  if(new_li.innerHTML != "") {
-    list.appendChild(new_li);
-  }
-  return true;
+      new_item.addText(input_field.value);
+      input_field.value = ""; // makes it so the text input is blank after putting a new list item
+
+      new_item.clickHandler(TodoApp.toggle_position); //TodoApp.toggle_position(event);
+      new_item.addDeleteButton();
+      list.appendChild(new_item.getItemElement());
+      return true;
 };
 
+//if the item's parent is unfinished, move to finished. if item's parent is finished, move to unfinished.
 TodoApp.toggle_position = function(event) {
   if (event.target.parentNode === TodoApp.unfinished_list) {
     TodoApp.finished_list.appendChild(event.target);
   } else {
     TodoApp.unfinished_list.appendChild(event.target);
   }
-}
+};
+
+// TodoApp.delete_from_list = function(list_element) {
+
+
+//   };
