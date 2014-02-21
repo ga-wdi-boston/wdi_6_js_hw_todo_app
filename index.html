@@ -7,8 +7,29 @@
   <script type="text/javascript" src="src/onload.js"></script>
   <script type="text/javascript" src="src/TodoApp.js"></script>
   <script type="text/javascript" src="src/TodoItem.js"></script>
+  <script type="text/javascript" src="src/Load.js"></script>
 </head>
 <body>
-  <h1>JS Todo App</h1>
+	<div id="container">
+  	<h1>JS Todo App</h1>
+  	<h3>To Do:</h3>
+  	<form>
+  		<input id="new-task-field">
+  		<input id="add-item" type="submit" value="Add New Item">
+  	</form>
+	  	<div id="unfinished">
+	  		<ul id="unfinished-items">
+	  			<!-- <li class="items">This is something<span class="actions"><button class="complete">Complete</button><button class="delete">Delete</button></span></li>
+	  			<li class="items">This is something else<span class="actions"><button class="complete">Complete</button><button class="delete">Delete</button></span></li> -->
+	  		</ul>
+  		</div>
+  	<h3>Completed:</h3>
+  	<div id="finished">
+  		<ul id="finished-items">
+  			<!-- <li class="items">This is something finished<span class="actions"><button class="delete">Delete</button></span></li>
+  			<li class="items">This is something else<span class="actions"><button class="delete">Delete</button></span></li> -->
+  		</ul>
+		</div>
+  </div>
 </body>
 </html>
