@@ -78,6 +78,10 @@ p {
 	color:#eeeeee;
 }
 
+#finished li:first-child {
+	text-decoration: line-through;
+}
+
 #unfinished li:first-child, #finished li:first-child {
 	min-width: 70%;
 }
