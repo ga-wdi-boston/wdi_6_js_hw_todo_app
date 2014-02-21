@@ -1,6 +1,6 @@
 body{
 	font-family: Helvetica, Arial, Sans-Serif;
-	background:#fafafa;
+	background:#4B0082;
 	color:#808080;
 }
 
@@ -20,7 +20,61 @@ p{
 	margin:0 0 0 45px;
 }
 
-.items{
+#unfinished, #finished{
+	margin:10px 0 10px 0;
+	padding:10px 40px 10px 10px;
+	background:#404040;
+	color:#eeeeee;
+}
+
+#unfinished li{
+	list-style-type: none;
+}
+
+#finished li {
+	color:#aaaaaa;
+	list-style-type: none;
+}
+
+.button{
+	margin:0px;
+	border:none;
+}
+
+.delete-button{
+	background:#eecccc;
+}
+
+.complete-button{
+	background:#eeeeee;
+}
+
+#add-item{
+	background:#6060ff;
+	padding:10px 20px 10px 20px;
+}
+
+.delete-button:hover{
+	background:#ff6060;
+}
+
+.complete-button:hover{
+	background:#80ff80;
+}
+
+.add-item:hover{
+	background:#4040ff;
+}
+
+li{
+	margin:5px;
+}
+
+/*h3{
+	color:#404040;
+}*/
+
+/*.items{
 	padding:10px;
 	background: white;
 	color:#808080;
@@ -30,61 +84,8 @@ p{
 	color:#aaaaaa;
 	font-size:small;
 	font-style:italic;
-}
+}*/
 
-#unfinished, #finished{
-	margin:10px 0 10px 0;
-	padding:10px 40px 10px 10px;
-	background:#404040;
-	color:#eeeeee;
-}
-
-#finished li{
-	list-style-type: none;
-}
-
-#finished li .items{
-	color:#aaaaaa;
-}
-
-.actions{
+/*.actions{
 	float:right;
-}
-
-button{
-	margin:0px;
-	border:none;
-}
-
-.delete{
-	background:#eecccc;
-}
-
-.complete{
-	background:#eeeeee;
-}
-
-#add-item{
-	background:#6060ff;
-	padding:10px 20px 10px 20px;
-}
-
-.delete:hover{
-	background:#ff6060;
-}
-
-.complete:hover{
-	background:#80ff80;
-}
-
-#add-item:hover{
-	background:#4040ff;
-}
-
-li{
-	margin:5px;
-}
-
-h3{
-	color:#404040;
-}
+}*/
