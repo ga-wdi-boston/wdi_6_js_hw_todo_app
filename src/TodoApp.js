@@ -31,7 +31,7 @@ var TodoApp = {};
 TodoApp.tasks = [];
 
 TodoApp.renderLists = function() {
-	var i, length, finished_list, unfinished_list
+	var i, length, finished_list, unfinished_list;
 
 	i = 0;
 	length = this.tasks.length;
