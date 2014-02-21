@@ -18,16 +18,6 @@ TodoItem.prototype = {
         buttons     = this.buttons,
         setInner;
 
-    buttons.complete.onclick = function(event) {
-      event.preventDefault();
-      TodoApp.finishTodo(self);
-    };
-
-    buttons.delete.onclick = function(event) {
-      event.preventDefault();
-      TodoApp.deleteTodo(self);
-    };
-
     // Create inner text from task name and date
     setInner = function(date) {
       var formattedDate = (date.getMonth() + 1) + "." + date.getDate(),
@@ -51,13 +41,22 @@ TodoItem.prototype = {
   },
   makeButtons: function() {
     var completeButton = document.createElement("button"),
-        deleteButton   = document.createElement("button");
+        deleteButton   = document.createElement("button"),
+        self = this;
 
     completeButton.className = "complete btn btn-success";
     completeButton.innerHTML = "<span class='glyphicon glyphicon-ok'></span>";
+    completeButton.onclick = function(event) {
+      event.preventDefault();
+      TodoApp.finishTodo(self);
+    };
 
     deleteButton.className = "delete btn btn-danger";
     deleteButton.innerHTML = "<span class='glyphicon glyphicon-remove'></span>";
+    deleteButton.onclick = function(event) {
+      event.preventDefault();
+      TodoApp.deleteTodo(self);
+    };
 
     return {complete: completeButton, delete: deleteButton};
   }
