@@ -20,27 +20,27 @@ TodoItem.prototype = {
 		this.delete_button(list_item, task);
 		return list_item;
 	},
-	complete_button: function(list, item) {
+	complete_button: function(list_item, task) {
 		var element = document.createElement('a');
 		element.setAttribute("class", "text-primary my_btn");
-		if (item.status === "completed"){
+		if (task.status === "completed"){
 			element.setAttribute("class", "hidden");
 		}
 		element.innerHTML = "Complete";
-		list.appendChild(element);
-		list.children[0].onclick = function(e) {
+		list_item.appendChild(element);
+		list_item.children[0].onclick = function(e) {
 			e.preventDefault();
-			item.complete_self();
+			task.complete_self();
 		};
 	},
-	delete_button: function(list, item) {
+	delete_button: function(list_item, task) {
 		var element2 = document.createElement('a');
 		element2.setAttribute("class", "text-danger my_btn");
 		element2.innerHTML = "Delete";
-		list.appendChild(element2);
-		list.children[1].onclick = function(e) {
+		list_item.appendChild(element2);
+		list_item.children[1].onclick = function(e) {
 			e.preventDefault();
-			item.delete_self();
+			task.delete_self();
 		};
 	},
 	complete_self: function() {
