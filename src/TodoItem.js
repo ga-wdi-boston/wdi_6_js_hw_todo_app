@@ -35,3 +35,22 @@ TodoItem.prototype.addDeleteButton = function() {
 
   this.li_el.appendChild(this.delete_button)
 };
+
+// Complete button hanCdler
+TodoItem.prototype.addCompleteButton = function() {
+  this.complete_button = document.createElement('button');
+  this.complete_button.innerHTML = "Complete";
+
+  this.complete_button.onclick = function(event) {
+
+    var  containingList = this.parentNode.parentNode,
+    containingListItem = this.parentNode;
+    containingList.removeChild(containingListItem);
+
+    //event.target.parentElement.parentElement.removeChild(this.parentElement);
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  this.li_el.appendChild(this.complete_button)
+};

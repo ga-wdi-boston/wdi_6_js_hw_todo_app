@@ -31,6 +31,7 @@ TodoApp.add_to_list = function(list) {
 
       new_item.clickHandler(TodoApp.toggle_position); //TodoApp.toggle_position(event);
       new_item.addDeleteButton();
+      new_item.addCompleteButton();
       list.appendChild(new_item.getItemElement());
       return true;
 };
@@ -44,7 +45,4 @@ TodoApp.toggle_position = function(event) {
   }
 };
 
-// TodoApp.delete_from_list = function(list_element) {
 
-
-//   };
