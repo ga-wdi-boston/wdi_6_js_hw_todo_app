@@ -15,13 +15,23 @@
   		<h1 class='cursive'>JS Todo App</h1>
   	</header>
 
-  	<div class='display '>
+  	<div class='display'>
   		<form class='text-right'>
 				<input id='new-task-field'>
-  			<input type='submit' value='Add' id='add-button' class='btn btn-default'>
+  			<input type='submit' value='Add' id='add-button' class='btn btn-default full-width'>
   		</form>
 
-	  	<div>
+	  	<div id='lists'>
+	  		<form class='float-right'>
+	  			<button type="button" class="btn btn-default" id='alpha-sort-button'>
+  					<span class="glyphicon glyphicon-sort-by-attributes"></span> Abc
+					</button>
+
+					<button type="button" class="btn btn-default" id='date-sort-button'>
+  					<span class="glyphicon glyphicon-sort-by-attributes"></span> Date
+					</button>
+  			</form>
+
 	  		<h2 class='cursive'>To Do</h2>
 	  		<ul id='unfinished'>
 	  		</ul>

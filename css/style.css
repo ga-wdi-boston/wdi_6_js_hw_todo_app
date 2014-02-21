@@ -31,6 +31,13 @@ p {
 	text-align: right;
 }
 
+.float-right {
+	float: right;
+}
+.float-left {
+	float: left;
+}
+
 .display {
 	width: 75%;
 	margin:50px auto;
@@ -42,6 +49,17 @@ p {
 	border-radius: 5px;
 	width: 100%;
 	margin-bottom: 10px;
+}
+
+#add-button {
+	width: 100%;
+	background: #53868B;
+	color: white;
+
+}
+
+#lists {
+	margin-top: 40px;
 }
 
 .items{
@@ -64,7 +82,7 @@ p {
 }
 
 #unfinished li:first-child, #finished li:first-child {
-	min-width: 50%;
+	min-width: 70%;
 }
 
 .actions{
@@ -81,7 +99,7 @@ button{
 }
 
 .complete{
-	background: #ADEAEA;
+	background: #C3E4ED;
 }
 
 #add-item{
@@ -94,7 +112,7 @@ button{
 }
 
 .complete:hover{
-	background: #5F9F9F;
+	background: #53868B;
 }
 
 #add-item:hover{
