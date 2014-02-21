@@ -4,13 +4,17 @@ var TodoItem = function(body){
 
 TodoItem.prototype.render = function() {
   var new_li = document.createElement('li'),
-  new_item_text = document.getElementById('new-task-field');
+  new_item_text = document.getElementById('new-task-field'),
+  complete_button = document.createElement('button'),
+  delete_button = document.createElement('button');
   new_li.className = 'items';
   new_li.innerHTML = new_item_text.value;
-  var complete_button = document.createElement('button');
   complete_button.innerHTML = 'Complete';
   complete_button.className = 'complete';
   new_li.appendChild(complete_button);
+  delete_button.innerHTML = 'Delete';
+  delete_button.className = 'delete';
+  new_li.appendChild(delete_button);
   new_item_text.value = '';
   return new_li;
 };
