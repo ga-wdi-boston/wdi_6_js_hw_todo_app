@@ -8,6 +8,13 @@ header {
 	padding-left: 10%;
 }
 
+button {
+}
+
+p {
+	margin:0px;
+}
+
 .cursive {
 	font-family: 'Over the Rainbow', cursive;
 }
@@ -17,20 +24,14 @@ header {
 }
 
 .display {
-	width: 60%;
+	width: 75%;
 	margin:50px auto;
-}
-
-button {
-}
-
-p{
-	margin:0px;
 }
 
 #new-task-field{
 	padding:10px;
-	border:none;
+	border: 1px solid #A3A3A3;
+	border-radius: 5px;
 	width: 100%;
 	margin-bottom: 10px;
 }
@@ -53,18 +54,14 @@ p{
 }
 
 #unfinished, #finished{
-	margin:0 auto;
-	padding: 20px 50px;
+	margin:0;
+	padding: 20px 20px;
 	background:#404040;
 	color:#eeeeee;
 }
 
-#finished li{
-	list-style-type: none;
-}
-
-#finished li .items{
-	color:#aaaaaa;
+#unfinished li:first-child, #finished li:first-child {
+	min-width: 50%;
 }
 
 .actions{
@@ -77,11 +74,11 @@ button{
 }
 
 .delete{
-	background:#eecccc;
+	background: whitesmoke;
 }
 
 .complete{
-	background:#eeeeee;
+	background: #ADEAEA;
 }
 
 #add-item{
@@ -90,22 +87,25 @@ button{
 }
 
 .delete:hover{
-	background:#ff6060;
+	background: gray;
 }
 
 .complete:hover{
-	background:#80ff80;
+	background: #5F9F9F;
 }
 
 #add-item:hover{
-	background:#4040ff;
+	background: #4040ff;
 }
 
 .task-info li {
 	display: inline-block;
-/*	min-width: 200px;*/
 }
 
+ul {
+	list-style-type: none;
+	color: white;
+}
 
 li {
 	margin:5px;

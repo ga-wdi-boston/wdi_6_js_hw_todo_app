@@ -13,7 +13,11 @@ TodoItem.prototype = {
 
 	create_button: function(type){
 		var button = document.createElement('button');
-		button.innerHTML = type.toUpperCase();
+		if(type === 'delete'){
+			button.innerHTML = '<span class="glyphicon glyphicon-trash"></span>';
+		} else if(type === 'complete'){
+			button.innerHTML = 'Complete';
+		};
 		button.className = 'btn btn-default ' + type;
 		var original_item = this;
 		button.onclick = function(event){
@@ -59,9 +63,9 @@ TodoItem.prototype = {
 		new_li.className = 'item-text';
 
 		if(this.date_completed) {
-			date = 'Completed ' + this.date_completed;
+			date = 'Completed ' + this.date_completed.toLocaleDateString();
 		} else {
-			date = 'Created ' + this.date_created;
+			date = 'Created ' + this.date_created.toLocaleDateString();
 		};
 		new_li.innerHTML = this.text + ' | (' + date + ')';
 		return new_li;
@@ -75,10 +79,10 @@ TodoItem.prototype = {
 		sub_list.className = 'task-info'
 		new_task.appendChild(sub_list);
 		sub_list.appendChild(this.display_text());
-		sub_list.appendChild(this.delete_button());
 		if(this.completed !== true) {
 			sub_list.appendChild(this.complete_button());
 		};
+		sub_list.appendChild(this.delete_button());
 		return new_task;
 	},
 
