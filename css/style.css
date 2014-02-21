@@ -67,13 +67,13 @@ div div div.half-container-2 {
 div div#left {
 	float: left;
 	text-align:right;
-	padding-right: 100px;
+	padding-right: 5%;
 }
 
 div div#right {
 	float: right;
 	text-align:left;
-	padding-left: 100px;
+	padding-left: 5%;
 }
 
 h2.half-header {
@@ -108,4 +108,14 @@ ul li span.item-text {
 
 ul li button {
 	margin: 0 2px;
+}
+
+div#footer {
+	position:fixed;
+	right:0;
+	bottom:0;
+	margin:0;
+	width:100%;
+	height:100%;
+	background:url(http://rarasaur.files.wordpress.com/2013/04/do.jpg?w=350&h=261) no-repeat bottom right;
 }
