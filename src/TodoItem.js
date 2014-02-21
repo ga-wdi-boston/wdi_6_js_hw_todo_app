@@ -21,24 +21,13 @@ TodoItem.prototype.render = function() {
   delete_button.innerHTML = 'Delete';
   delete_button.className = 'delete';
   new_li.appendChild(delete_button);
+  delete_button.onclick = function(event) {
+    event.preventDefault;
+    this.parentNode.remove();
+  };
   new_item_text.value = '';
   return new_li;
 };
 
 // Add TodoItem functions to generate the Complete and Delete buttons with onclick functions that perform those actions, and incorporate the buttons into the "rendered" DOM node
-// TodoItem.prototype.generate_button = function() {
-//   var complete_button = document.createElement('button');
-//   this.appendChild(complete_button);
-//   // complete_button.onclick = function(event) {
-//   //   event.preventDefault();
-//   //   var thing_to_delete = this.parentNode
-//   // };
-// };
 
-// TodoItem.prototype.mark_complete = function() {
-
-// };
-
-// TodoItem.prototype.delete = function() {
-
-// };
