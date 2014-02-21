@@ -26,6 +26,7 @@ var TodoApp = {
 			new_span.className = "item-text";
 			new_span.innerHTML = new_item_text.value;
 
+			// add to unfinished list
 		  unfinished_list.appendChild(new_li);
 		  new_li.appendChild(new_span);
 		  new_li.appendChild(new_done_button);
@@ -55,14 +56,31 @@ var TodoApp = {
 
 
 	create_new_done_button: function() {
-		var new_done_button = document.createElement('button');
+		var new_done_button = document.createElement('button'),
+
+				new_li = document.createElement('li'),
+				new_span = document.createElement('span'),
+
+				finished_list = document.getElementById('finished-items'),
+				new_delete_button = this.create_new_delete_button();
 
 		new_done_button.className = "done";
 		new_done_button.innerHTML = "done!";
 
 		new_done_button.onclick = function(event) {
 			event.preventDefault();
+
+			// delete from unfinished list
 			this.parentNode.parentNode.removeChild(this.parentNode);
+
+			// add to finished list
+			new_li.className = "item";
+			new_span.className = "item-text";
+			new_span.innerHTML = this.parentNode.innerHTML;
+			finished_list.appendChild(new_li);
+			new_li.appendChild(new_span);
+			new_li.appendChild(new_delete_button);
+
 			return false;
 		};
 
