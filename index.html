@@ -7,8 +7,37 @@
   <script type="text/javascript" src="src/onload.js"></script>
   <script type="text/javascript" src="src/TodoApp.js"></script>
   <script type="text/javascript" src="src/TodoItem.js"></script>
+  <script type="text/javascript" src="src/main.js"></script>
 </head>
 <body>
   <h1>JS Todo App</h1>
+
+  <h2>Unfinished items</h2>
+  <ul id="unfini-list">
+    <li class="ufini-item">Assignment
+      <button class='delete'>Delete</button>
+      <button class='complete'>Complete</button>
+    </li>
+
+    <li class="ufini-item">Project
+      <button class='delete'>Delete</button>
+      <button class='complete'>Complete</button>
+    </li>
+  </ul>
+
+  <form>
+    <input id="new-item"/>
+    <input id="new-item-button" type="submit" value="Create"></submit>
+  </form>
+
+  <h2>Finished items</h2>
+  <ul id="fini-list">
+    <li class="fini-item">sleep
+      <form>
+        <input id="delete-fini-item-button" type="submit" value="Delete"></submit>
+      </form>
+    </li>
+  </ul>
+
 </body>
 </html>
