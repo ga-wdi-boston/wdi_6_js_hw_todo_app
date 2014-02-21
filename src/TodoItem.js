@@ -13,7 +13,12 @@ TodoItem.prototype = {
 
 	create_button: function(type){
 		var button = document.createElement('button');
-		button.innerHTML = type.toUpperCase();
+		if(type === 'delete'){
+			button.innerHTML = '<span class="glyphicon glyphicon-trash"></span>';
+		} else if(type === 'complete'){
+			button.innerHTML = '<span class="glyphicon glyphicon-ok"></span> Done';
+		};
+
 		button.className = 'btn btn-default ' + type;
 		var original_item = this;
 		button.onclick = function(event){
@@ -54,16 +59,21 @@ TodoItem.prototype = {
 		return new_li;
 	},
 
+	date_text: function(){
+		var p = document.createElement('p')
+		p.className = 'date-text';
+		if(this.date_completed) {
+			p.innerHTML = 'Completed ' + this.date_completed.toLocaleDateString();
+		} else {
+			p.innerHTML = 'Created ' + this.date_created.toLocaleDateString();
+		};
+		return p;
+	},
+
 	display_text: function(){
 		var new_li = document.createElement('li'), date;
-		new_li.className = 'item-text';
-
-		if(this.date_completed) {
-			date = 'Completed ' + this.date_completed;
-		} else {
-			date = 'Created ' + this.date_created;
-		};
-		new_li.innerHTML = this.text + ' | (' + date + ')';
+		new_li.className = 'task-text';
+		new_li.innerHTML = this.text;
 		return new_li;
 	},
 
@@ -75,10 +85,11 @@ TodoItem.prototype = {
 		sub_list.className = 'task-info'
 		new_task.appendChild(sub_list);
 		sub_list.appendChild(this.display_text());
-		sub_list.appendChild(this.delete_button());
 		if(this.completed !== true) {
 			sub_list.appendChild(this.complete_button());
 		};
+		sub_list.appendChild(this.delete_button());
+		sub_list.appendChild(this.date_text());
 		return new_task;
 	},
 
