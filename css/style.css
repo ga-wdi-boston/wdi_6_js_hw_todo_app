@@ -1,21 +1,21 @@
 body, input, button {
 	font-family: 'Alegreya Sans', sans-serif;
-	margin: 0;
-	padding: 0;
 }
 
 div#header {
 	text-align: center;
-	  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-	  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-	  color:transparent;
-	  -webkit-background-clip: text;
-	  background-clip: text;
 }
 
 div#header h1 {
 	font-size: 60px;
 	margin: 25px 0;
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+	margin: 0 auto;
 }
 
 div#new-task-field {
@@ -107,4 +107,15 @@ ul li span.item-text {
 
 ul li button {
 	margin: 0 2px;
+}
+
+div#image {
+	position:fixed;
+	width: 400px;
+	height: 400px;
+	border: 1px solid tangerine;
+	/* make it be in bottom right-hand corner? or maybe bottom center? */
+}
+
+img#do-all-the-things {
 }
