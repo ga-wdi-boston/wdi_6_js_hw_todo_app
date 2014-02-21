@@ -16,14 +16,9 @@ TodoItem.prototype = {
 		if(type === 'delete'){
 			button.innerHTML = '<span class="glyphicon glyphicon-trash"></span>';
 		} else if(type === 'complete'){
-<<<<<<< HEAD
 			button.innerHTML = '<span class="glyphicon glyphicon-ok"></span> Done';
 		};
 
-=======
-			button.innerHTML = 'Complete';
-		};
->>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 		button.className = 'btn btn-default ' + type;
 		var original_item = this;
 		button.onclick = function(event){
@@ -68,15 +63,9 @@ TodoItem.prototype = {
 		var p = document.createElement('p')
 		p.className = 'date-text';
 		if(this.date_completed) {
-<<<<<<< HEAD
 			p.innerHTML = 'Completed ' + this.date_completed.toLocaleDateString();
 		} else {
 			p.innerHTML = 'Created ' + this.date_created.toLocaleDateString();
-=======
-			date = 'Completed ' + this.date_completed.toLocaleDateString();
-		} else {
-			date = 'Created ' + this.date_created.toLocaleDateString();
->>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 		};
 		return p;
 	},
@@ -100,10 +89,7 @@ TodoItem.prototype = {
 			sub_list.appendChild(this.complete_button());
 		};
 		sub_list.appendChild(this.delete_button());
-<<<<<<< HEAD
 		sub_list.appendChild(this.date_text());
-=======
->>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 		return new_task;
 	},
 
