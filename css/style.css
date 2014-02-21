@@ -35,7 +35,7 @@ h4 {
 	margin-bottom: 8px;
 }
 
-#unfinished {
+#unfinished, #finished {
 	padding-left: 0px;
 }
 
@@ -56,4 +56,6 @@ p {
 	font-size: smaller;
 	color: #3498DB;
 	margin-left: 10px;
+	margin-right: 25px;
+	float: right;
 }
