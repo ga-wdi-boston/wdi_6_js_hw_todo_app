@@ -9,6 +9,10 @@ body{
 	margin:auto;
 }
 
+h4{
+	font-style:italic;
+}
+
 p{
 	margin:0px;
 }
