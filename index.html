@@ -8,7 +8,28 @@
   <script type="text/javascript" src="src/TodoApp.js"></script>
   <script type="text/javascript" src="src/TodoItem.js"></script>
 </head>
-<body>
+<body id="container">
   <h1>JS Todo App</h1>
+
+  <h3>Unfinished Items</h3>
+  	<ul id="unfinished">
+  		<li class="items"></li>
+  	</ul>
+
+  <form id="add-item">
+		<input class="new-item" id="new-task-field"/>
+		<input class="new-item-button" id = "new-unfinished-item-button" type="submit" value="Add an Item to your Unfinished Items"></submit>
+	</form>
+
+  <h3>Finished Items</h3>
+  	<ul id="finished">
+  		<li class="items"></li>
+  	</ul>
+
+ <!--  <form>
+		<input class="new-item" />
+		<input class="new-item-button" id = "new-finished-item-button"type="submit" value="Add an Item to your Finished Items"></submit>
+	</form> -->
+
 </body>
 </html>
