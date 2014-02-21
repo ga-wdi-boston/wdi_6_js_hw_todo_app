@@ -32,7 +32,12 @@ p{
 	font-style:italic;
 }
 
+ul {
+	 list-style-type: none;
+}
+
 #unfinished, #finished{
+	list-style-type: none;
 	margin:10px 0 10px 0;
 	padding:10px 40px 10px 10px;
 	background:#404040;
