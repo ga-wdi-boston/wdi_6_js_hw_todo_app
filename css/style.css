@@ -1,12 +1,18 @@
 body{
 	font-family: Helvetica, Arial, Sans-Serif;
+	padding-top: 40px;
 	background:#fafafa;
 	color:#808080;
+	background: url("http://i.imgur.com/2mCKgij.jpg"), no-repeat, center, center, fixed;
 }
 
 #container{
 	width:1000px;
 	margin:auto;
+}
+
+.margin-bottom {
+	margin-bottom: 30px;
 }
 
 p{
@@ -27,7 +33,7 @@ p{
 }
 
 .meta-data{
-	color:#aaaaaa;
+	color:#444;
 	font-size:small;
 	font-style:italic;
 }
@@ -88,10 +94,15 @@ ul {
 li{
 	margin:15px;
 	font-size: 18px;
+	color: #222;
 }
 
 h3{
 	color:#404040;
+}
+
+h1 {
+	color: #444;
 }
 
 .complete {
@@ -111,4 +122,18 @@ h3{
 
 .my_btn {
 	margin-left: 10px;
+}
+
+.boxy {
+	background-color: rgba(255, 255, 255, 0.7);
+	padding-left: 15px;
+
+}
+
+.boxy:first-child {
+	margin-right: 15px;
+}
+
+.jumbotron {
+	background-color: rgba(255, 255, 255, 0.7) !important;
 }

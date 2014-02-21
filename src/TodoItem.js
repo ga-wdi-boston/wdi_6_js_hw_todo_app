@@ -52,5 +52,4 @@ TodoItem.prototype = {
 		TodoApp.task_array.splice(index, 1);
 		TodoApp.render_todo(TodoApp.task_array);
 	}
-
 };
