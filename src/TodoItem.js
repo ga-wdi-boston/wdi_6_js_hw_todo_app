@@ -1,3 +1,6 @@
+//Add "created at" and "completed at" properties to TodoItem
+
+
 var TodoItem = function(content_of_item){
 	this.content_of_item = content_of_item;
 };
