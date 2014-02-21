@@ -13,23 +13,28 @@
   <h2>To Do</h2>
 
   <ul id="unfinished">
-  	<li>Clean Room</li>
-  	<li>Pay Bills</li>
-  	<li>Call Mom</li>
+  	<li>Clean Room<a href>Complete</a>|<a href>Delete</a></li>
+  	<li>Pay Bills<a href>Complete</a>|<a href>Delete</a></li>
+  	<li>Call Mom<a href>Complete</a>|<a href>Delete</a></li>
   </ul>
 
   <form>
-  	<input id="add-item" />
-  	<input id="add-item-button" type="submit" value="Create"></submit>
+  	<input class="new-list-item" id="add-item"/>
+  	<input class="new-list-item" id="add-item-todo-button" type="submit" value="Add To Do List Item"></submit>
   </form>
 
   <h2>Done</h2>
 
   <ul id="finished">
-  	<li>Washed Car</li>
-  	<li>Returned Library Books</li>
-  	<li>Bought Groceries</li>
+  	<li>Washed Car<a href>Delete</a></li>
+  	<li>Returned Library Books<a href>Delete</a></li>
+  	<li>Bought Groceries<a href>Delete</a></li>
   </ul>
+
+  <form>
+  	<input class="new-list-item" id="add-item"/>
+  	<input class="new-list-item" id="add-item-finished-button" type="submit" value="Add to Finished List"></submit>
+  </form>
 
 </body>
 </html>
