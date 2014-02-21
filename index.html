@@ -1,28 +1,40 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>JS Todo App</title>
-  <link rel="stylesheet" href="css/style.css">
+  <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href="css/flat-ui.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   <script type="text/javascript" src="src/TodoApp.js"></script>
   <script type="text/javascript" src="src/TodoItem.js"></script>
   <script type="text/javascript" src="src/DomFunctions.js"></script>
 </head>
 <body>
-  <h1>JS Todo App</h1>
-  <form id="taskForm">
-    <input type="text" placeholder="Task description" id="taskField">
-    <input type="submit" value="Create Task" id="submitNew">
-  </form>
-  <div id="unfinished">
-    <h3>Unfinished Todos</h3>
-    <ul id="unfinishedList">
-    </ul>
-  </div>
-  <div id="finished">
-    <h3>Finished Todos</h3>
-    <ul id="finishedList">
-    </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-12-xs">
+        <h1>JS Todo App</h1>
+        <h3>Sort by: <a href="#" id="sort-date" class="sort">date</a> | <a href="#"
+            id="sort-alpha" class="sort">alphabetically</a></h3>
+      </div>
+    </div>
+    <div class="inline-form row">
+      <input type="text" placeholder="Task description" id="taskField" class="form-control">
+      <button type="button" value="Create Task" id="submitNew" class="btn btn-info">Create Task</button>
+    </div>
+    <div class="row">
+      <div id="unfinished" class="col-sm-5">
+        <h4>Unfinished Todos</h4>
+        <ul id="unfinishedList">
+        </ul>
+      </div>
+      <div id="finished" class="col-sm-5 pull-left">
+        <h4>Finished Todos</h4>
+        <ul id="finishedList">
+        </ul>
+      </div>
+    </div>
   </div>
 </body>
 </html>

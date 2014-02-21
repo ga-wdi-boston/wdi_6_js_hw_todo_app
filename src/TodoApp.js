@@ -17,6 +17,7 @@ var TodoApp = {
   },
   finishTodo: function(todo) {
     todo.status = "finished";
+    todo.completedAt = new Date();
     this.renderTodos();
   },
   deleteTodo: function(todo) {
@@ -43,6 +44,21 @@ var TodoApp = {
     unfinishedList.innerHTML = "";
     finishedList.innerHTML   = "";
     this.todoItems.forEach(renderOne);
+  },
+  sortBy: function(options) {
+    console.log(options);
+    if (options.sort === "date") {
+      this.todoItems.sort(function (a,b) {
+        var aDate = a.completedAt || a.createdAt, // completedAt is null if not
+            bDate = b.completedAt || b.createdAt;
+        return aDate - bDate;
+      });
+    } else if (options.sort === "alpha") {
+      this.todoItems.sort(function(a,b) {
+        return (a.task > b.task);
+      });
+    }
+    this.renderTodos();
   },
   todoItems: []
 };

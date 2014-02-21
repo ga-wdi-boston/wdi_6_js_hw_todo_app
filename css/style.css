@@ -1,90 +1,59 @@
-body{
-	font-family: Helvetica, Arial, Sans-Serif;
-	background:#fafafa;
-	color:#808080;
+body {
+	background-color: #ECF0F1;
 }
 
-#container{
-	width:1000px;
-	margin:auto;
+#taskField {
+	padding-left: 12px;
+	width: 50%;
+	display: inline-block;
 }
 
-p{
-	margin:0px;
+ul#unfinishedList, ul#finishedList {
+	-webkit-padding-start: 0px; /* I have no idea what this is but Chrome was throwing it in */
 }
 
-#newTaskField{
-	padding:10px;
-	border:none;
-	width:789px;
-	margin:0 0 0 45px;
-}
-
-.items{
-	padding:10px;
-	background: white;
-	color:#808080;
-}
-
-.meta-data{
-	color:#aaaaaa;
-	font-size:small;
-	font-style:italic;
-}
-
-#unfinished, #finished{
-	margin:10px 0 10px 0;
-	padding:10px 40px 10px 10px;
-	background:#404040;
-	color:#eeeeee;
-}
-
-#unfinished li, #finished li{
+li {
+	padding-left: 5px;
+	height: 40px;
 	list-style-type: none;
 }
 
-#finished li .items{
-	color:#aaaaaa;
+#submitNew {
+	display: inline-block;
 }
 
-.actions{
-	float:right;
+.sort {
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
-button{
-	margin:0px;
-	border:none;
+h1 {
+	color: #D35400;
 }
 
-.delete{
-	background:#eecccc;
+h4 {
+	margin-bottom: 8px;
 }
 
-.complete{
-	background:#eeeeee;
+#unfinished {
+	padding-left: 0px;
 }
 
-#addItem{
-	background:#6060ff;
-	padding:10px 20px 10px 20px;
+p {
+	width: 70%;
+	display: inline-block;
+	font-size: 18px;
+	margin-bottom: 0px;
 }
 
-.delete:hover{
-	background:#ff6060;
+.complete, .delete {
+	margin-right: 2px;
+	width: 32px;
+	height: 32px;
 }
 
-.complete:hover{
-	background:#80ff80;
-}
-
-#add-item:hover{
-	background:#4040ff;
-}
-
-li{
-	margin:5px;
-}
-
-h3{
-	color:rgba(255, 99, 71, 0.7);
+.meta-data {
+	font-size: smaller;
+	color: #3498DB;
+	margin-left: 10px;
 }
