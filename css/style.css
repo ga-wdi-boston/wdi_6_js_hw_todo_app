@@ -13,6 +13,10 @@ p{
 	margin:0px;
 }
 
+h1{
+	color:black;
+	background-color: white
+}
 #new-task-field{
 	padding:10px;
 	border:none;
@@ -33,8 +37,6 @@ p{
 }
 
 #unfinished, #finished{
-	margin:10px 0 10px 0;
-	padding:10px 40px 10px 10px;
 	background:#404040;
 	color:#eeeeee;
 }
