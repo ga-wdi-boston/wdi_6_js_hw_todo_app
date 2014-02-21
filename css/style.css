@@ -2,10 +2,6 @@ body, input, button {
 	font-family: 'Alegreya Sans', sans-serif;
 	margin: 0;
 	padding: 0;
-	background-image: url('something');
-	background-position: right bottom;
-	background-repeat: no-repeat;
-	background-size: contain;
 }
 
 div#header {
