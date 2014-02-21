@@ -8,6 +8,7 @@ header {
 	padding-left: 10%;
 }
 
+<<<<<<< HEAD
 h1 {
 	font-size: 300%;
 }
@@ -16,6 +17,8 @@ h2 {
 	font-size: 240%;
 }
 
+=======
+>>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 button {
 }
 
@@ -31,6 +34,7 @@ p {
 	text-align: right;
 }
 
+<<<<<<< HEAD
 .float-right {
 	float: right;
 }
@@ -42,6 +46,12 @@ p {
 	width: 75%;
 	margin:50px auto;
 }
+=======
+.display {
+	width: 75%;
+	margin:50px auto;
+}
+>>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 
 #new-task-field{
 	padding:10px;
@@ -76,13 +86,21 @@ p {
 
 #unfinished, #finished{
 	margin:0;
+<<<<<<< HEAD
 	padding: 20px 50px;
+=======
+	padding: 20px 20px;
+>>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 	background:#404040;
 	color:#eeeeee;
 }
 
 #unfinished li:first-child, #finished li:first-child {
+<<<<<<< HEAD
 	min-width: 70%;
+=======
+	min-width: 50%;
+>>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 }
 
 .actions{
@@ -99,7 +117,11 @@ button{
 }
 
 .complete{
+<<<<<<< HEAD
 	background: #C3E4ED;
+=======
+	background: #ADEAEA;
+>>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 }
 
 #add-item{
@@ -112,21 +134,29 @@ button{
 }
 
 .complete:hover{
+<<<<<<< HEAD
 	background: #53868B;
+=======
+	background: #5F9F9F;
+>>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 }
 
 #add-item:hover{
 	background: #4040ff;
+<<<<<<< HEAD
 }
 
 .task-info {
 	margin-bottom: 20px;
+=======
+>>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 }
 
 .task-info li {
 	display: inline-block;
 }
 
+<<<<<<< HEAD
 .task-text {
 	font-size: 150%;
 	color: white;
@@ -143,6 +173,11 @@ ul {
 	list-style-type: disc;
 	color: white;
 	padding: 0;
+=======
+ul {
+	list-style-type: none;
+	color: white;
+>>>>>>> bc17eeaa103dfa77cdd85c1945dfd314b6862048
 }
 
 li {
