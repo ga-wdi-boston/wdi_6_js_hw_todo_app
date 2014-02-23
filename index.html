@@ -4,22 +4,24 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>JS Todo App</title>
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="src/TodoApp.js"></script>
   <script type="text/javascript" src="src/TodoItem.js"></script>
+  <script type="text/javascript" src="src/TodoApp.js"></script>
 </head>
 <body>
   <h1>JS Todo App</h1>
   <h2>Unfinished Items</h2>
     <ul id="unfinished">
-      <li></li>
+     <input id="delete-button" type="submit" value="Trash" />
+     <input id="finished-button" type="submit" value="Finished" />
     </ul>
-    <form>
-      <input id="add-item" />
-      <input id="button" type="submit" value="Create" />
+    <form id="create-form">
+      <input id="add-item-field" />
+      <input id="create-button" type="submit" value="Create" />
     </form>
 
-
-    </form>
-
+  <h2>Finished Items</h2>
+  <ul id="finished">
+    </ul>
 </body>
+
 </html>
