@@ -1,5 +1,6 @@
 var TodoItem = function(text){
-  this.date = new Date();
+  this.created_at = new Date();
   this.text = text;
 };
+
 

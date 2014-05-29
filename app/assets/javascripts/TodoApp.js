@@ -8,7 +8,7 @@ var TodoApp = {
     var itemInput = $('#new-item').val();
     if (itemInput!== '') {
      var newToDo = new TodoItem(itemInput);
-     var newItem = $('<li>').html(newToDo.date + " | " + newToDo.text + " | " + TodoApp.completeButton() + " | " + TodoApp.deleteButton());
+     var newItem = $('<li>').html(newToDo.created_at + " | " + newToDo.text + " | " + TodoApp.completeButton() + " | " + TodoApp.deleteButton());
      TodoApp.unfinished.push(newToDo);
      $('#unfinished-list').append(newItem);
       $('#new-item').val('');
