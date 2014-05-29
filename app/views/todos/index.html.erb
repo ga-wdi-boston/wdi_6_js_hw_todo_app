@@ -1,2 +1,37 @@
 <h1>To-Do List</h1>
-<p>Add your own markup here!</p>
+<div class='incomplete'>
+  <table id='incomplete-tasks'>
+    <tr colspan='4'>
+      <th>Incomplete</th>
+    </tr>
+    <tr>
+      <th>Task</th>
+      <th>Created</th>
+      <th>Delete</th>
+      <th>Complete</th>
+    </tr>
+    <!-- Incomplete/New Tasks Go Here -->
+  </table>
+</div>
+
+<div class='complete'>
+  <table id='complete-tasks'>
+    <tr colspan='4'>
+      <th>Complete</th>
+    </tr>
+    <tr>
+      <th>Task</th>
+      <th>Created</th>
+      <th>Completed</th>
+      <th>Delete</th>
+    </tr>
+    <!-- Completed Tasks Go Here -->
+  </table>
+</div>
+
+<div class='input'>
+  <form id='todo-input'>
+    <input type="text" placeholder="Enter a New Task" id='todo-field'></input>
+  </form>
+</div>
+
