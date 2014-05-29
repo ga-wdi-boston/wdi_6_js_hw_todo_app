@@ -15,4 +15,4 @@ $(document).ready(function() {
 // for (var i=0; i < TodoApp.completed_list.length; i++) {
 //   document.write(TodoApp.todo_list[i] + "<br />");
 // }
-//
+
