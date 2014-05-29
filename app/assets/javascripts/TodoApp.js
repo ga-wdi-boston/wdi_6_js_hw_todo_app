@@ -1,9 +1,4 @@
 
-$(document).ready(function() {
-  $('#todo-input').on('submit', TodoApp.addTodoItem);
-
-});
-
 
 
 var TodoApp = {
@@ -11,8 +6,12 @@ var TodoApp = {
     var newTodo = $('#todo-field').val();
 
     if(newTodo !== ''){
-      var newTodoItem = $('<li>').text(newTodo);
-      $('#todo-list').append(newTodoItem);
+      var newItem = $('<tr>');
+      var newTodoText = $('<td>').text(newTodo);
+      var newTodoDeleted = $("<td><input type='button' value='Delete' id='todo_delete'>");
+      var newTodoCompleted = $("<td><input type='button' value='Complete' id='todo_complete'>");
+      newItem.append(newTodoText, newTodoDeleted, newTodoCompleted);
+      $('#todo-table').append(newItem);
       $('#todo-field').val('');
     }
     event.preventDefault();
