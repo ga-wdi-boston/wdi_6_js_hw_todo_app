@@ -2,7 +2,30 @@
 // DOM, and store an array of current `TodoItem` objects.
 
 var TodoApp = {
-  taskList: [],
-  completeTask: function(){},
-  deleteTask: function(){}
+  unfinishedTasks: [],
+  completedTasks: [],
+
+  addNewTask: function(event){
+    event.preventDefault();
+    var newTaskTitle = $('#task-field').val();
+    if(newTaskTitle !== ''){
+      TodoApp.unfinishedTasks.push(newTask);
+      var newTask = new TodoItem(newTaskTitle);
+
+      // Trying to create the wrapper and the new ul here
+      var newItem = $('<ul>','<li>').text(newTaskTitle);
+      $('#unfinished').append(newItem);
+    }
+  },
+
+  completeTask: function(){
+
+  },
+
+  deleteTask: function(){
+
+  }
 };
+
+
+// TodoApp.unfinishedTasks[i].createdAt.toLocaleString()
