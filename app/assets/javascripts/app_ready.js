@@ -1,14 +1,15 @@
 $(document).ready(function() {
-  $('#add-todo').on('click', TodoApp.addTodo);
+  $('#todo-field').on('submit', TodoApp.addTodo);
 });
 
 var TodoApp = {
 
   addTodo: function(event){
-    var newTodo = $('#todo-field').val();
+    var newTodo = $('#thingToDo').val();
     var newListItem = $('<li>').text(newTodo);
     $('.todo-list').append(newListItem);
-    $('#todo-field').val('');
+    $('#thingToDo').val('');
     event.preventDefault();
   }
+
 };
