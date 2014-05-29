@@ -1,11 +1,11 @@
 
 var TodoApp = {
+  itemsArray: [],
+
   addTodoItem: function(event){
     var passedItem = $('#todo-field').val();
     if(passedItem !== ''){
-      debugger;
     var newTodoItem = new TodoItem(passedItem);
-
     var newItem = $('<tr>');
     var newTodoText = $('<td>').text(newTodoItem.itemName);
     var newTodoDeleted = $("<td><input type='button' value='Delete' id='todo_delete'>");
@@ -13,7 +13,7 @@ var TodoApp = {
     newItem.append(newTodoText, newTodoDeleted, newTodoCompleted);
     $('#todo-table').append(newItem);
     $('#todo-field').val('');
-
+    TodoApp.itemsArray.push(newTodoItem);
     }
     event.preventDefault();
   }
