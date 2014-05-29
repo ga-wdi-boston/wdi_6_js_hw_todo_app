@@ -1,2 +1,35 @@
 <h1>To-Do List</h1>
-<p>Add your own markup here!</p>
+<p>Keep track of your most urgent to-do items!</p>
+
+<form id='todo-input'>
+  <input type="text" placeholder="Add an urgent item" id='todo-field'></input>
+  <input type="submit">
+</form>
+<span></span>
+
+
+<ul id='todo-list' class='text-left'>
+  <li>Do laundry
+    <em>Created at: Timestamp</em>
+    <input type="checkbox"><button>Delete me</button>
+  </li>
+  <li>Do homework
+    <em>Created at: Timestamp</em>
+    <input type="checkbox"><button>Delete me</button>
+  </li>
+</ul>
+
+<hr>
+<h6>Completed items</h6>
+<ul id='completed-list' class='text-left'>
+  <li>Grocery shopping
+    <em>Completed at: Timestamp</em>
+    <input type="checkbox" checked>
+    <button>Delete me</button>
+  </li>
+  <li>Make dinner
+    <em>Completed at: Timestamp</em>
+    <input type="checkbox" checked>
+    <button>Delete me</button>
+  </li>
+</ul>
