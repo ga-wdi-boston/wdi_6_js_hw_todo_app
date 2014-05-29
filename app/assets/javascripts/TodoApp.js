@@ -1,5 +1,8 @@
 var TodoApp = {
 
+  todo_list: [],
+  completed_list: [],
+
   addNewItem: function(event){
     var newTodo = $('#todo-field').val();
     var newItem = $('<li>').text(newTodo);
@@ -8,10 +11,14 @@ var TodoApp = {
       $('span').text( "Can't submit an empty field!" ).show().fadeOut( 1000 );
       event.preventDefault();
     } else {
-      $('#todo-list').append(newItem);
-      $('#todo-field').val('');
+      debugger;
+      TodoApp.todo_list.push(newTodo);
+      // $('#todo-list').append(newItem);
+      // $('#todo-field').val('');
       event.preventDefault();
     }
   }
+
+
 
 };
