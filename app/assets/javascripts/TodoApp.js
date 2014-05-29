@@ -1,19 +1,37 @@
 
-
-
 var TodoApp = {
   addTodoItem: function(event){
-    var newTodo = $('#todo-field').val();
+    var passedItem = $('#todo-field').val();
+    if(passedItem !== ''){
+      debugger;
+    var newTodoItem = new TodoItem(passedItem);
 
-    if(newTodo !== ''){
-      var newItem = $('<tr>');
-      var newTodoText = $('<td>').text(newTodo);
-      var newTodoDeleted = $("<td><input type='button' value='Delete' id='todo_delete'>");
-      var newTodoCompleted = $("<td><input type='button' value='Complete' id='todo_complete'>");
-      newItem.append(newTodoText, newTodoDeleted, newTodoCompleted);
-      $('#todo-table').append(newItem);
-      $('#todo-field').val('');
+    var newItem = $('<tr>');
+    var newTodoText = $('<td>').text(newTodoItem.itemName);
+    var newTodoDeleted = $("<td><input type='button' value='Delete' id='todo_delete'>");
+    var newTodoCompleted = $("<td><input type='button' value='Complete' id='todo_complete'>");
+    newItem.append(newTodoText, newTodoDeleted, newTodoCompleted);
+    $('#todo-table').append(newItem);
+    $('#todo-field').val('');
+
     }
     event.preventDefault();
   }
+
 };
+
+
+
+  //   var newTodo = $('#todo-field').val();
+
+  //   if(newTodo !== ''){
+  //     var newItem = $('<tr>');
+  //     var newTodoText = $('<td>').text(newTodo);
+  //     var newTodoDeleted = $("<td><input type='button' value='Delete' id='todo_delete'>");
+  //     var newTodoCompleted = $("<td><input type='button' value='Complete' id='todo_complete'>");
+  //     newItem.append(newTodoText, newTodoDeleted, newTodoCompleted);
+  //     $('#todo-table').append(newItem);
+  //     $('#todo-field').val('');
+  //   }
+  //   event.preventDefault();
+  // }

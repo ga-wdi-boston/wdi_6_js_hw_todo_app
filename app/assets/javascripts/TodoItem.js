@@ -1,6 +1,9 @@
 
-var TodoItem = function(item){
-  this.item = item;
-  this.created = xx;
-  this.completed = yy;
+var TodoItem = function(itemName){
+  this.itemName = itemName;
+  this.created = new Date();
+  this.completed = false;
 };
+
+
+
