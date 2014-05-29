@@ -1,3 +1,3 @@
-var TodoItem = function(){
-
+var TodoItem = function(name){
+  this.name = name;
 };
