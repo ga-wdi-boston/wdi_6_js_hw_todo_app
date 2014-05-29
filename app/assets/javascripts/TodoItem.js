@@ -7,5 +7,5 @@
 var TodoItem = function(title){
   this.title = title;
   this.createdAt = new Date();
-  this.completedAt = completedAt || '';
+  this.completedAt = '';
 };
