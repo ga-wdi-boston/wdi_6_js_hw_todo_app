@@ -22,11 +22,13 @@ var TodoApp = {
   },
 
   complete: function(event){
-    var deleteId = this.parentNode.parentNode.id;
+    var completeId = this.parentNode.parentNode.id;
     for(i = 0; i < TodoApp.todo_array.length; i++) {
-      if(TodoApp.todo_array[i].id.toString() === deleteId) {
-        TodoApp.todo_array.splice(i, 1);
-        $('#' + deleteId).remove();
+      if(TodoApp.todo_array[i].id.toString() === completeId) {
+        this.todo = TodoApp.todo_array[i];
+        $('#' + completeId).remove();
+        this.todo.completed = new Date();
+        this.todo.display();
       }
     }
     event.preventDefault();
