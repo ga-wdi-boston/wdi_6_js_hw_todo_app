@@ -4,7 +4,7 @@ var TodoItem = function(text){
 };
 
 TodoItem.prototype.listElement = function(){
-  newElement = $('<li>');
+  newElement = $('<li>').addClass('list-item');
   newElement.html(this.created_at + " | " + this.text + " | " + this.completeButton() + " | " + this.deleteButton());
   return newElement;
 };
