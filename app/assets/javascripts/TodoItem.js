@@ -2,10 +2,11 @@ var TodoItem = function(text){
   this.created_at = new Date();
   this.text = text;
   this.completed = false;
+  this.id = $.now();
 };
 
 TodoItem.prototype.listElement = function(){
-  newElement = $('<li>').addClass('list-item');
+  newElement = $('<li>').addClass('list-item').attr('id', this.id) ;
   newElement.html(this.created_at + " | " + this.text + " | ").append(this.completeButton()).append(this.deleteButton());
   return newElement;
 };
