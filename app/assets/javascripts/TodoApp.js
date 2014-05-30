@@ -2,8 +2,6 @@ var TodoApp = {
 
   unfinished: [],
 
-  finished: [],
-
   addNewItem: function(){
     var itemInput = $('#new-item').val();
     if (itemInput!== '') {
