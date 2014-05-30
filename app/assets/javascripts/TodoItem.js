@@ -1,36 +1,23 @@
-var TodoItem = {
-  newTodo: function(event){
-    var newTodo = $('#todo-field').val();
-    var todo;
+var TodoItem = function(newTodo){
+  this.text = newTodo;
+  this.id = $.now();
+  this.created = new Date();
+  this.completed = false;
+};
 
-    if(newTodo !== ''){
-      todo.text = newTodo;
-      todo.created = $.now();
-      todo.completed = false;
-      debugger;
-      TodoApp.todo_array.push(todo);
-      TodoItem.displayTodo(todo);
-      $('#todo-field').val('');
+TodoItem.prototype = {
+  display: function(todo){
+    this.newRow = $('<tr id=' + this.id + '>');
+    newTodoCell = $('<td>').text(this.text);
+    newCreatedCell = $('<td>').text(this.created);
+    newDeleteCell = $("<td><input type='button' value='Delete' class='delete'>");
+    newCompleteCell = $("<td><input type='button' value='Complete' class='complete'>");
+    this.newRow.append(newTodoCell, newCreatedCell, newDeleteCell, newCompleteCell);
+    if(!this.completed){
+      $('#incomplete-tasks').append(this.newRow);
     }
-
-    event.preventDefault();
-  },
-
-  completeTodo: function(){
-
-  },
-
-  deleteTodo: function(){
-
-  },
-
-  displayTodo: function(todo){
-    var newRow = $('<tr>');
-    var newTodoCell = $('<td>').text(todo.text);
-    var newCreatedCell = $('<td>').text(todo.text);
-    var newDeleteCell = $("<td><input type='button' value='Delete' id='delete'>");
-    var newCompleteCell = $("<td><input type='button' value='Complete' id='complete'>");
-    newRow.append(newTodoCell, newCreatedCell, newDeleteCell, newCompleteCell);
-    $('#incomplete-tasks').append(newRow);
+    else{
+      $('#complete-tasks').append(this.newRow);
+    }
   }
 };
