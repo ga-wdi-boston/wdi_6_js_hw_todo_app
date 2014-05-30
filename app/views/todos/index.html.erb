@@ -1,29 +1,37 @@
-<h1>To-Do List</h1>
+<h1 class="title">To-Do List</h1>
 
 <div class= 'container'>
   <dix class="row">
     <div class="col-md-6">
-      <h2>Todo</h2>
-
-      <ul class="todo-list">
-        <li>unfinished</li>
-      </ul>
-
-      <form role="form" id="todo-field">
-        <div class="form-group">
-          <label for="new-todo"><b>New Todo</b></label>
-          <input type="text" class="form-control" id="thingToDo" placeholder="add a todo">
-          <button type="submit" class="btn btn-default" id="add-todo">Add todo</button>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Todo's</h3>
         </div>
-      </form>
+        <div class="panel-body">
+          <ul class="todo-list">
+          </ul>
+        </div>
+        <div class="panel-footer">
+          <form role="form" role="form" id="todo-field">
+          <button type="submit" class="btn btn-default" id="add-todo">Add todo</button>
+            <div class="form-group">
+              <input type="text" class="form-control" id="thingToDo" placeholder="add a todo">
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="col-md-6">
-      <h2>Completed</h2>
-
-      <ul class="completed-list">
-        <li>completed</li>
-      </ul>
-
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Completed</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="completed-list">
+            <li>completed</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </dix>
