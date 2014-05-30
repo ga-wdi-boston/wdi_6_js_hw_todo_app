@@ -1,6 +1,7 @@
 var TodoItem = function(text){
   this.created_at = new Date();
   this.text = text;
+  this.completed = false;
 };
 
 TodoItem.prototype.listElement = function(){
