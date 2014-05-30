@@ -5,14 +5,19 @@ var TodoItem = function(text){
 
 TodoItem.prototype.listElement = function(){
   newElement = $('<li>').addClass('list-item');
-  newElement.html(this.created_at + " | " + this.text + " | " + this.completeButton() + " | " + this.deleteButton());
+  // newElement.html(this.created_at + " | " + this.text + " | " + this.completeButton() + " | " + this.deleteButton());
+  newElement.html(this.created_at + " | " + this.text + " | ").append(this.completeButton()).append(this.deleteButton());
   return newElement;
 };
 
 TodoItem.prototype.completeButton = function(){
-    return '<a href="#" class="btn btn-small btn-default" id="complete-item-button">Complete</a>';
+    var attributes = {'id':"complete-item-button", 'href':"#"};
+    var newElement = $('<a>').addClass("btn btn-small btn-default").attr(attributes).text("Complete");
+    return newElement;
   };
 
 TodoItem.prototype.deleteButton = function(){
-    return '<a href="#" class="btn btn-small btn-default" id="delete-item-button">Delete</a>';
+    var attributes = {'id':"delete-item-button", 'href':"#"};
+    var newElement = $('<a>').addClass("btn btn-small btn-default").attr(attributes).text("Delete");
+    return newElement;
   };
