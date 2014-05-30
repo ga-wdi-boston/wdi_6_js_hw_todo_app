@@ -21,16 +21,22 @@ var TodoApp = {
     event.preventDefault();
   },
 
-  // complete: function(event){
-
-  //   event.preventDefault();
-  // },
+  complete: function(event){
+    var deleteId = this.parentNode.parentNode.id;
+    for(i = 0; i < TodoApp.todo_array.length; i++) {
+      if(TodoApp.todo_array[i].id.toString() === deleteId) {
+        TodoApp.todo_array.splice(i, 1);
+        $('#' + deleteId).remove();
+      }
+    }
+    event.preventDefault();
+  },
 
   delete: function(event){
-    deleteId = this.parentNode.parentNode.id;
+    var deleteId = this.parentNode.parentNode.id;
     for(i = 0; i < TodoApp.todo_array.length; i++) {
-      while(TodoApp.todo_array[i].id === deleteId) {
-        //TodoApp.todo_array.splice(i, 1);
+      if(TodoApp.todo_array[i].id.toString() === deleteId) {
+        TodoApp.todo_array.splice(i, 1);
         $('#' + deleteId).remove();
       }
     }
