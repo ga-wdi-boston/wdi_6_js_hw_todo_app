@@ -6,6 +6,10 @@
   =require twitter-bootstrap-static/fontawesome
 */
 
-li.task-wrapper {
+li.task {
   margin-bottom: 1em;
+}
+
+li.task p {
+  margin: 0;
 }
