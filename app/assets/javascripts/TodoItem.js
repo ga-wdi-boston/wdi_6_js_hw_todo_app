@@ -6,7 +6,6 @@ var TodoItem = function(text){
 
 TodoItem.prototype.listElement = function(){
   newElement = $('<li>').addClass('list-item');
-  // newElement.html(this.created_at + " | " + this.text + " | " + this.completeButton() + " | " + this.deleteButton());
   newElement.html(this.created_at + " | " + this.text + " | ").append(this.completeButton()).append(this.deleteButton());
   return newElement;
 };
