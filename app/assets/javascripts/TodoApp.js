@@ -1,15 +1,15 @@
 var TodoApp = {
 
-  unfinished: [],
+  all_items: [],
 
   addNewItem: function(){
     var itemInput = $('#new-item').val();
     if (itemInput!== '') {
      var newToDo = new TodoItem(itemInput);
-     TodoApp.unfinished.push(newToDo);
+     TodoApp.all_items.push(newToDo);
       $('#new-item').val('');
       event.preventDefault();
-      TodoApp.displayLists(TodoApp.unfinished);
+      TodoApp.displayLists(TodoApp.all_items);
     }
   },
 
