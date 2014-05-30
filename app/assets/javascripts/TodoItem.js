@@ -10,9 +10,9 @@ TodoItem.prototype = {
     this.newRow = $('<tr id=' + this.id + '>');
     newTodoCell = $('<td>').text(this.text);
     newCreatedCell = $('<td>').text(this.created);
-    newDeleteCell = $("<td><input type='button' value='Delete' class='delete'>");
-    newCompleteCell = $("<td><input type='button' value='Complete' class='complete'>");
-    this.newRow.append(newTodoCell, newCreatedCell, newDeleteCell, newCompleteCell);
+    newCompleteCell = this.completed || $("<td><input type='button' value='Complete' class='complete btn btn-primary'>");
+    newDeleteCell = $("<td><input type='button' value='Delete' class='delete btn btn-primary'>");
+    this.newRow.append(newTodoCell, newCreatedCell, newCompleteCell, newDeleteCell);
     if(!this.completed){
       $('#incomplete-tasks').append(this.newRow);
     }
@@ -21,3 +21,4 @@ TodoItem.prototype = {
     }
   }
 };
+
