@@ -15,5 +15,15 @@
  */
 
  #add-todo {
-  margin-bottom: 10px;
+  float: right;
  }
+ .form-group{
+  max-width: 50%;
+  margin-right: 0;
+ }
+.title{
+  text-align: center;
+}
+li{
+  margin-top: 10px;
+}
