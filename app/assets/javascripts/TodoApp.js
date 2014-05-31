@@ -19,9 +19,8 @@ var TodoApp = {
   },
 
   deleteItem: function(event){
-    var btnClass = TodoApp.todoArray[0].name;
-    // var itemToDelete = ($('.todo-list'));
-    debugger;
+    var itemToDelete = ($(this.parentNode));
+    itemToDelete.remove();
     event.preventDefault();
   }
 };
