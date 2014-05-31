@@ -19,11 +19,14 @@
  }
  .form-group{
   max-width: 50%;
-  margin-right: 0;
+  margin: 0;
  }
 .title{
   text-align: center;
 }
 li{
   margin-top: 10px;
+}
+#todo-field{
+  margin-bottom: 0;
 }
