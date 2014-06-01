@@ -58,7 +58,7 @@ h1 {
 
 /* Supporting pending, .completed content */
 .pending,
-.completed, {
+.completed {
   margin: 40px 0;
 }
 .pending,

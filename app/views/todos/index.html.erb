@@ -4,7 +4,7 @@
     <h1>To-do list</h1>
     <p class="lead">Keep track of your most urgent to-do items!</p>
 
-    <form id='new-todo'>
+    <form id='todo-input'>
       <div class="input-group">
         <input type="text" placeholder="Add an urgent item" id='todo-field' class="form-control"></input>
         <span class="input-group-btn">
@@ -18,18 +18,19 @@
   <div class="row pending">
     <div class="col-lg-6">
       <h4 class= "text-center">Pending</h4>
-        <table class="table todos"></table>
+        <table class="table todos" id="todo-list-pending"></table>
     </div>
   </div>
 
   <div class="row completed">
     <div class="col-lg-6">
       <h4 class= "text-center">Completed</h4>
-      <table class="table todos"></table>
+      <table class="table todos" id="todo-list-completed"></table>
     </div>
   </div>
 
   <div class="footer">
     <p></p>
   </div>
+
 </div>

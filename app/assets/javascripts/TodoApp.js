@@ -1,25 +1,23 @@
 var TodoApp = {
 
-  todoList: [],
-  completedList: [],
-  itemCounter: 0,
+  todos: [],
 
   addNewItem: function(event){
     var itemInput = $('#todo-field').val();
-    // debugger;
+
 
     if (itemInput === '') {
-      $('span').text( "Can't submit an empty field!" ).show().fadeOut( 1000 );
+      $('.error-message').text( "Can't submit an empty field!" ).show().fadeOut( 1000 );
     } else {
-      var newTodo = new TodoItem(itemInput, id);
-      TodoApp.todo_list.push(newTodo);
+      var newTodo = new TodoItem(itemInput);
+      $('#todo-list-pending').append(newTodo.display());
+      TodoApp.todos.push(newTodo);
       // debugger;
-      var newItem = $('<li>').text(itemInput + ', Created at:' + newTodo.created );
-      // function to return the next item id and increment it
 
 
-      $(this).attr('id', 'value');
-      $('#todo-list').append(newItem);
+
+      // $(this).attr('id', 'value');
+      // $('#todo-list').append(newItem);
       $('#todo-field').val('');
     }
     event.preventDefault();
