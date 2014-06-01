@@ -4,31 +4,31 @@ var TodoApp = {
 
   addNewItem: function(event){
     var itemInput = $('#todo-field').val();
-
-
     if (itemInput === '') {
-      $('.error-message').text( "Can't submit an empty field!" ).show().fadeOut( 1000 );
+      $('.error-message').text( "Can't submit an empty field!" ).show().fadeOut( 2000 );
     } else {
       var newTodo = new TodoItem(itemInput);
-      $('#todo-list-pending').append(newTodo.display());
       TodoApp.todos.push(newTodo);
-      // debugger;
+      debugger;
+      TodoApp.updateLists();
+      //$('#todo-list-pending').append(newTodo.display());
 
-
-
-      // $(this).attr('id', 'value');
-      // $('#todo-list').append(newItem);
       $('#todo-field').val('');
     }
     event.preventDefault();
   },
 
   deleteItem: function(thisItem){
-    for(var i = 0; i < TodoApp.todoList.length; i++) {
-      while(TodoApp.todoList[i].itemName === thisItem) {
-        TodoApp.todoList.splice(i, 1);
+    for(var i = 0; i < TodoApp.todos.length; i++) {
+      while(TodoApp.todos[i].itemName === thisItem) {
+        TodoApp.todos.splice(i, 1);
       }
     }
+  },
+
+  updateLists: function(){
+    $('#todo-list-pending, #todo-list-completed').empty();
+    TodoApp.todos.forEach(function(todoObject){$('#todo-list-pending').append(todoObject.display());        });
   }
 
 // when collection changes, it automatically updates the view.
