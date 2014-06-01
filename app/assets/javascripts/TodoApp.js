@@ -17,7 +17,6 @@ var TodoApp = {
 
   deleteItem: function(event){
     var targetId = parseInt($(event.target).attr('id'));
-    debugger;
     for(var i = 0; i < TodoApp.todos.length; i++) {
       if(TodoApp.todos[i].id === targetId) {
         TodoApp.todos.splice(i, 1);
