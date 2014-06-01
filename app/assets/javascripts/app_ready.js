@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
   $("#todo-input" ).on('submit', TodoApp.addNewItem);
+  // $(".delete-todo").on('click', TodoApp.deleteItem);
+  $('#todo-list-pending').on('click', '.delete-todo', TodoApp.deleteItem);
 
 
 

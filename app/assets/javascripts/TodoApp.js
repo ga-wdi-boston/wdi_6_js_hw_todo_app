@@ -9,27 +9,27 @@ var TodoApp = {
     } else {
       var newTodo = new TodoItem(itemInput);
       TodoApp.todos.push(newTodo);
-      debugger;
       TodoApp.updateLists();
-      //$('#todo-list-pending').append(newTodo.display());
-
       $('#todo-field').val('');
     }
     event.preventDefault();
   },
 
-  deleteItem: function(thisItem){
+  deleteItem: function(event){
+    var targetId = parseInt($(event.target).attr('id'));
+    debugger;
     for(var i = 0; i < TodoApp.todos.length; i++) {
-      while(TodoApp.todos[i].itemName === thisItem) {
+      if(TodoApp.todos[i].id === targetId) {
         TodoApp.todos.splice(i, 1);
       }
     }
+    TodoApp.updateLists();
   },
 
   updateLists: function(){
     $('#todo-list-pending, #todo-list-completed').empty();
-    TodoApp.todos.forEach(function(todoObject){$('#todo-list-pending').append(todoObject.display());        });
-  }
+    TodoApp.todos.forEach(function(todo){$('#todo-list-pending').append(todo.display());        });
+  },
 
 // when collection changes, it automatically updates the view.
 // DATA BINDING (bind your view to your model)
@@ -39,6 +39,10 @@ var TodoApp = {
   //   for(var i = 0; i < itemsList.length; i++) {
   //     itemsList[i].itemName;
   //   }
+  // }
+
+  // findTodo: function(targetId){
+  //   return $.grep(this.todos, function(todo){ return todo.id === targetId; })[0];
   // }
 
 

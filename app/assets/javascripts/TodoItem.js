@@ -17,8 +17,8 @@ TodoItem.prototype = {
     var row = $('<tr>').addClass(this.id);
     var itemNameCell = $('<td>').text(this.itemName);
     var dateCell = $('<td>').text(this.formatDate(this.created));
-      var completeButton = $('<button>').text('Completed!');
-      var deleteButton = $('<button>').text('X');
+      var completeButton = $('<button>').text('Completed!').attr('id', this.id).attr('type', 'button').addClass('complete-todo');;
+      var deleteButton = $('<button>').text('X').attr('id', this.id).attr('type', 'button').addClass('delete-todo');
     var buttonCell = $('<td>').append(completeButton).append(deleteButton);
 
     return row.append(itemNameCell).append(dateCell).append(buttonCell);
