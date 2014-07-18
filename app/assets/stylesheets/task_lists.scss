@@ -1,0 +1,10 @@
+$primary-color: #008CBA;
+
+.task-header {
+  background: $primary-color;
+  border-radius: 0.5rem 0.5rem 0 0;
+  h3 {
+    color: white;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+}

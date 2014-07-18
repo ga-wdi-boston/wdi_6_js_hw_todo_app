@@ -14,3 +14,6 @@ gem 'spring', group: :development
 
 gem 'jasmine-rails', groups: [:development, :test]
 gem 'foundation-rails'
+
+# add foundation icons
+gem 'foundation-icons-sass-rails'
