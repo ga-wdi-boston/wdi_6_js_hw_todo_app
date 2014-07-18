@@ -4,7 +4,7 @@ var TodoApp = {
 
   initialize: function() {
 
-    $('#clara-has-a-form').submit(this.createTask);
+    $('#clara-has-a-form').submit($.proxy(this.createTask, this));
 
   },
 
@@ -22,19 +22,38 @@ var TodoApp = {
   },
 
   createTask: function(event) {
+
     if($('#to-do-field').val() === ""){
       event.preventDefault();
       return;
     }
 
+    event.preventDefault();
+
     var newTaskText = $('#to-do-field').val();
     $('#to-do-field').val("");
     var newTask = new TodoItem(newTaskText);
+
     var newListItem = $('<li>');
     newListItem.text(newTask.item);
-    $('.to-do-list').append(newListItem);
+    newListItem.append(this.buttonMaker());
 
-    event.preventDefault();
+    $('.to-do-list').append(newListItem);
+  },
+
+  buttonMaker: function() {
+    var buttonContainer = $('<span>');
+    buttonContainer.addClass("buttons");
+
+    var deleteButton = $('<span>');
+    deleteButton.addClass("glyphicon glyphicon-trash delete-button");
+    var finishButton = $('<span>');
+    finishButton.addClass("glyphicon glyphicon-ok finish-button");
+
+    buttonContainer.append(finishButton);
+    buttonContainer.append(deleteButton);
+
+    return buttonContainer;
   },
 
   // displayTask: function(todoitem) {

@@ -16,3 +16,16 @@
  *= require_tree .
  *= require_self
  */
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.buttons {
+  float: right;
+}
