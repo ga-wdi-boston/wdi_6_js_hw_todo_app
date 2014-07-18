@@ -89,7 +89,9 @@ var TodoApp = {
     list.find('.to-do-item').remove();
     array.forEach(function(elem) {
       var theItem = new TodoItem(elem.content, {id: elem.id, createdAt: elem.createdAt, isSaved: elem.isSaved} );
-      list.append(theItem.generateElement());
+      var pageElement = theItem.generateElement();
+      if(elem.isSaved) { TodoApp.commitElement(pageElement); }
+      list.append(pageElement);
     });
 
   }
