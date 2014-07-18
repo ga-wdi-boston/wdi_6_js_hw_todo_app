@@ -9,18 +9,48 @@ var TodoApp = {
     $('.to-do-list').on('click', '.finish-button', this.finishTask);
     $('.to-do-list').on('click', '.delete-button', this.deleteTask);
 
+    $('.row').on('click', 'button', this.sortBy);
+
   },
 
-  sortByName: function(list) {
-    return list.sort(function(a, b) {
-      return a.item.toLowerCase() - b.item.toLowerCase();
-    });
-  },
+  sortBy: function(event) {
+    if(event !== undefined) { event.preventDefault(); }
 
-  // this sorts by ascending (i think)
-  sortByDate: function(list) {
-    return list.sort(function(a, b) {
-      return a.createdAt - b.createdAt;
+    var holderDiv = $(this).parents('.list-holder');
+    console.log($(this));
+
+    var list;
+    var listElement;
+    if (holderDiv.hasClass("to-do") === true) {
+      list = TodoApp.currentItems;
+      listElement = $('.to-do-list');
+    } else if (holderDiv.hasClass("finished-things") === true) {
+      list = TodoApp.finishedItems;
+      listElement = $('.finished-things-list');
+    }
+
+    var sorted;
+
+    if ($(this).hasClass("sort-by-name") === true ) {
+      sorted = list.sort(function(a, b) {
+        return a.item.toLowerCase() > b.item.toLowerCase();
+      });
+    } else if ($(this).hasClass("sort-by-date") === true ) {
+      if (list === TodoApp.currentItems) {
+        sorted = list.sort(function(a, b) {
+          return a.createdAt < b.createdAt;
+        });
+      } else if (list === TodoApp.finishedItems) {
+        sorted = list.sort(function(a, b) {
+          return a.finishedAt < b.finishedAt;
+        });
+      }
+    }
+
+    listElement.empty();
+
+    sorted.forEach(function(elem, index) {
+      listElement.append(elem.createListElement());
     });
   },
 
@@ -81,14 +111,5 @@ var TodoApp = {
     thisTask.removeItem();
     listItem.fadeOut();
   }
-
-  // displayTask: function(todoitem) {
-  //   var newTask = $('<li>');
-  //   newTask.text(todoitem.item);
-  // },
-
-  // addNewTask: function() {
-  //   $('.to-do-list').append(this.displayTask(this.createTask()));
-  // }
 
 };
