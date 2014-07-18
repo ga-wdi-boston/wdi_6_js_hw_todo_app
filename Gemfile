@@ -13,4 +13,4 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 
 gem 'jasmine-rails', groups: [:development, :test]
-gem 'bootstrap-sass'
+gem 'foundation-rails'
