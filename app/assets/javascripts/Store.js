@@ -1,17 +1,18 @@
 var Store = {
   storage : [],
 
-  save : function(todo, id){
+  save : function(data, id){
     if(id) {
       for(var i = 0; i < this.storage.length; i++) {
         if(this.storage[i].id === id) {
-          for(var key in todo) {
-            this.storage[i][key] = todo[key];
+          for(var prop in data) {
+            this.storage[i][prop] = data[prop];
           }
           break;
         }
       }
     } else {
+      var todo = new TodoItem(data);
       todo.id = new Date().getTime();
       this.storage.push(todo);
     }
@@ -26,14 +27,15 @@ var Store = {
     }
   },
 
-  find : function(id){
-    for(var i = 0; i < this.storage.length; i++) {
-        var todo = this.storage[i];
-        if(todo.id === id) {
-          return todo;
+  find : function(query){
+    return this.storage.filter(function(todo){
+      for(var prop in query){
+        if(query[prop] !== todo[prop]) {
+          return false;
         }
-    }
-    return null;
+        return true;
+      }
+    });
   },
 
   findAll : function(){

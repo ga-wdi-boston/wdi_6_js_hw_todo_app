@@ -1,4 +1,5 @@
-var TodoItem = function(title){
-  this.title = title;
-  this.completed = false;
+var TodoItem = function(args){
+  args = args || { title : '' };
+  this.title = args.title;
+  this.completed = args.completed || false;
 };
