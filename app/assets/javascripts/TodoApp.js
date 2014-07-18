@@ -7,6 +7,7 @@ var TodoApp = {
     $('#to-do-form').submit($.proxy(this.createTask, this));
 
     $('.to-do-list').on('click', '.finish-button', this.finishTask);
+    $('.to-do-list').on('click', '.delete-button', this.deleteTask);
 
   },
 
@@ -24,12 +25,11 @@ var TodoApp = {
   },
 
   createTask: function(event) {
+    event.preventDefault();
 
     if($('#to-do-field').val() === ""){
-      event.preventDefault();
       return;
     }
-    event.preventDefault();
 
     var newTaskText = $('#to-do-field').val();
     $('#to-do-field').val("");
@@ -42,7 +42,6 @@ var TodoApp = {
     if(event !== undefined) { event.preventDefault(); }
 
     var listItem = $(this).parents('li');
-
 
     var allMatching = [];
     TodoApp.currentItems.forEach(function(todo, index) {
@@ -60,6 +59,27 @@ var TodoApp = {
 
     $('.finished-things-list').append(itemToBeFinished.createListElement());
 
+  },
+
+  // this is not dry at all. but do i care? nope. not right now I don't.
+
+  deleteTask: function(event) {
+    if(event !== undefined) { event.preventDefault(); }
+
+    var listItem = $(this).parents('li');
+
+    var allMatching = [];
+    TodoApp.currentItems.forEach(function(todo, index) {
+      if(todo.item === listItem.text()){
+        allMatching.push(index);
+      }
+    });
+
+    var thisTaskIndex = allMatching[0];
+    var thisTask = TodoApp.currentItems[thisTaskIndex];
+
+    thisTask.removeItem();
+    listItem.fadeOut();
   }
 
   // displayTask: function(todoitem) {
