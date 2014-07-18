@@ -3,9 +3,7 @@ var TodoApp = {
   finishedItems: [],
 
   initialize: function() {
-
-    $('#clara-has-a-form').submit($.proxy(this.createTask, this));
-
+    $('#to-do-form').submit($.proxy(this.createTask, this));
   },
 
   sortByName: function(list) {
@@ -34,26 +32,7 @@ var TodoApp = {
     $('#to-do-field').val("");
     var newTask = new TodoItem(newTaskText);
 
-    var newListItem = $('<li>');
-    newListItem.text(newTask.item);
-    newListItem.append(this.buttonMaker());
-
-    $('.to-do-list').append(newListItem);
-  },
-
-  buttonMaker: function() {
-    var buttonContainer = $('<span>');
-    buttonContainer.addClass("buttons");
-
-    var deleteButton = $('<span>');
-    deleteButton.addClass("glyphicon glyphicon-trash delete-button");
-    var finishButton = $('<span>');
-    finishButton.addClass("glyphicon glyphicon-ok finish-button");
-
-    buttonContainer.append(finishButton);
-    buttonContainer.append(deleteButton);
-
-    return buttonContainer;
+    $('.to-do-list').append(newTask.createListElement());
   },
 
   // displayTask: function(todoitem) {
