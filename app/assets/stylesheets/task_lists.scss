@@ -1,9 +1,11 @@
 $primary-color: #008CBA;
+$secondary-color: #e7e7e7;
 
 .task-panel {
   box-shadow: 0 3px 6px rgba(0,0,0,.25);
   // border-radius: 0.5rem;
   padding: 0;
+
   .task-header {
     background: $primary-color;
     // border-radius: 0.5rem 0.5rem 0 0;
@@ -11,8 +13,15 @@ $primary-color: #008CBA;
       color: white;
       padding: 0.5rem 0 0.5rem 1rem;
     }
-    table {
-      width: 100%;
-    }
+  }
+
+  .sub-nav {
+    background: $secondary-color;
+    width: 100%;
+    margin: 0;
+  }
+
+  table {
+    width: 100%;
   }
 }
