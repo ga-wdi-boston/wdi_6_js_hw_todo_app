@@ -35,8 +35,17 @@ var TodoApp = {
   },
   sort: function() {
     var sortCriterion = ($(this).data('type'));
-    $('#unfinished-items .unfinished-item').remove();
-    var items = TodoApp.items.filter(function (item) { return item.isFinished === false; });
+    var isFinished = ($(this).data('is-finished'));
+    console.log(isFinished);
+    if (isFinished) {
+      console.log($('#finished-items .finished-item').remove());
+      $('#finished-items .finished-item').remove();
+    }
+    else {
+      console.log($('#unfinished-items .unfinished-item'));
+      $('#unfinished-items .unfinished-item').remove();
+    }
+    var items = TodoApp.items.filter(function (item) { return item.isFinished === isFinished; });
     items.sort(function (a, b) {
       if (a[sortCriterion] > b[sortCriterion])
         return 1;
@@ -45,7 +54,12 @@ var TodoApp = {
       return 0;
     });
     items.forEach(function(item){
-      $('#unfinished-items').append(item.toHtml());
+      if (item.isFinished) {
+        $('#finished-items').append(item.toHtml().removeClass('unfinished-item').addClass('finished-item'));
+      }
+      else {
+        $('#unfinished-items').append(item.toHtml());
+      }
     });
   }
 };
