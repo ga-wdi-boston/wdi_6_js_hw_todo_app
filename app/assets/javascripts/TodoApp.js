@@ -36,13 +36,10 @@ var TodoApp = {
   sort: function() {
     var sortCriterion = ($(this).data('type'));
     var isFinished = ($(this).data('is-finished'));
-    console.log(isFinished);
     if (isFinished) {
-      console.log($('#finished-items .finished-item').remove());
       $('#finished-items .finished-item').remove();
     }
     else {
-      console.log($('#unfinished-items .unfinished-item'));
       $('#unfinished-items .unfinished-item').remove();
     }
     var items = TodoApp.items.filter(function (item) { return item.isFinished === isFinished; });
