@@ -20,8 +20,7 @@ TodoItem.prototype = {
     TodoApp.currentItems.splice(TodoApp.currentItems.indexOf(this), 1);
   },
 
-  createListElement: function() {
-    // this just makes a bunch of buttons
+  createButtons: function() {
     var buttonContainer = $('<span>');
     buttonContainer.addClass("buttons");
 
@@ -32,10 +31,16 @@ TodoItem.prototype = {
 
     buttonContainer.append(finishButton);
     buttonContainer.append(deleteButton);
+    return buttonContainer;
+  },
 
+  createListElement: function() {
     var newListItem = $('<li>');
     newListItem.text(this.item);
-    newListItem.append(buttonContainer);
+
+    if(this.finished === false) {
+      newListItem.append(this.createButtons());
+    }
 
     return newListItem;
   }
