@@ -9,10 +9,14 @@ var TodoApp = {
 
   addTask: function(event) {
     var submission = $('#new-task-text').val();
-    var newTask = new TodoItem(submission);
-    this.tasks.push(newTask);
-    this.regenerateLists();
-    $('#new-task-text').val('');
+    try {
+      var newTask = new TodoItem(submission);
+      this.tasks.push(newTask);
+      this.regenerateLists();
+      $('#new-task-text').val('');
+    } catch(error) {
+      throw error;
+    }
 
     event.preventDefault();
   },

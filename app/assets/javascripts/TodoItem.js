@@ -1,4 +1,7 @@
 var TodoItem = function(task){
+  if(task === "") {
+    throw new error("Task is not defined");
+  }
   this.id = TodoItem.generateId();
   this.task = task;
   this.completed = false;
