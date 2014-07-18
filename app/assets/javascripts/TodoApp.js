@@ -8,9 +8,6 @@ var TodoApp = {
     $('.to-do-list').on('click', '.buttons .glyphicon', this.changeTask);
 
     $('.row').on('click', 'button', this.sortBy);
-
-    $('.to-do-list').on('mouseenter', 'li', this.buttonFade);
-    $('.to-do-list').on('mouseleave', 'li', this.buttonFade);
   },
 
   createTask: function(event) {
@@ -71,9 +68,11 @@ var TodoApp = {
   changeTask: function(event) {
     if(event !== undefined) { event.preventDefault(); }
 
-    var listItem = $(this).parents('li');
+    var listItemHolder = $(this).parents('li');
+    var listItem = listItemHolder.find('div').first();
 
     var allMatching = [];
+
     TodoApp.currentItems.forEach(function(todo, index) {
       if(todo.item === listItem.text()){
         allMatching.push(index);
@@ -83,7 +82,7 @@ var TodoApp = {
     var indexToBeChanged = allMatching[0];
     var itemToBeChanged = TodoApp.currentItems[indexToBeChanged];
 
-    listItem.slideUp();
+    listItemHolder.slideUp();
 
     if($(this).hasClass("finish-button") === true) {
       itemToBeChanged.markAsDone();
