@@ -3,7 +3,8 @@ var TodoApp = {
 
   initialize: function() {
     $('form').submit($.proxy(this.addTask, this));
-    $('table').on('click', 'a', $.proxy(this.completeTask, this));
+    $('table').on('click', 'a[title="Complete"]', $.proxy(this.completeTask, this));
+    $('table').on('click', 'a[title="Delete"]', $.proxy(this.deleteTask, this));
   },
 
   addTask: function(event) {
@@ -17,14 +18,27 @@ var TodoApp = {
   },
 
   completeTask: function(event) {
-    var currentTaskId = $(event.target).parents().find('tr').data('id');
-    var currentTask = this.tasks.filter(function(task){
-      return task.id === currentTaskId;
-    })[0];
+    var currentTask = this.getTask();
     currentTask.markCompleted();
     this.regenerateLists();
 
     event.preventDefault();
+  },
+
+  deleteTask: function(event) {
+    var currentTask = this.getTask();
+    this.tasks = this.tasks.filter(function(task) {
+      return task !== currentTask;
+    });
+    this.regenerateLists();
+
+    event.preventDefault();
+  },
+
+  getTask: function() {
+    return this.tasks.filter(function(task){
+      return task.id === $(event.target).closest('tr').data('id');
+    })[0];
   },
 
   regenerateLists: function() {

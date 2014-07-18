@@ -18,15 +18,21 @@ TodoItem.prototype = {
   html: function() {
     // Completed table data
     var iconCompleted = $('<i>').addClass('fi-check');
-    var linkCompleted = $('<a>').attr('href', '#').addClass('title', 'Complete').append(iconCompleted);
+    var linkCompleted = $('<a>').attr('href', '#').attr('title', 'Complete').append(iconCompleted);
     var dataCompleted = $('<td>').append(linkCompleted);
 
     // Task table data
     var dataTask = $('<td>').text(this.task);
 
+    // Delete table data
+    var iconDelete = $('<i>').addClass('fi-trash');
+    var linkDelete = $('<a>').attr('href', '#').attr('title', 'Delete').append(iconDelete);
+    var dataDelete = $('<td>').append(linkDelete);
+
     // Task table row
     var tableRow = $('<tr>').append(dataCompleted);
     tableRow.append(dataTask);
+    tableRow.append(dataDelete);
     tableRow.data('id', this.id);
     return tableRow;
   }
