@@ -3,20 +3,21 @@ function Model(storage){
 }
 
 Model.prototype = {
-  create : function(title){
-    this.storage.save({title: title});
-    return newItem;
+  create : function(title, callback){
+    this.storage.save({title: title}, callback);
   },
 
-  read : function(query){
+  read : function(query, callback){
+    callback = callback || function(){};
+
     if(query) {
-      return this.storage.find(query);
+      return this.storage.find(query, callback);
     }
-    return this.storage.findAll();
+    return this.storage.findAll(callback);
   },
 
-  update : function(id, data){
-    this.storage.save(data, id);
+  update : function(id, data, callback){
+    this.storage.save(data, callback, id);
   },
 
   remove : function(id){
@@ -27,21 +28,22 @@ Model.prototype = {
     this.storage.drop();
   },
 
-  getCount : function(){
+  getCount : function(callback){
     var status = {
       active : 0,
       completed : 0,
       total : 0
     };
-    var todos = this.storage.findAll();
-    todos.forEach(function(todo){
-      if(todo.completed) {
-        status.completed++;
-      } else {
-        status.active++;
-      }
-      status.total++;
+    this.storage.findAll(function(data){
+      data.forEach(function(todo){
+        if(todo.completed) {
+          status.completed++;
+        } else {
+          status.active++;
+        }
+        status.total++;
+      });
+      callback(status);
     });
-    return status;
   }
 };

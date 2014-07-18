@@ -1,8 +1,13 @@
-var Store = {
-  storage : [],
+function Store(){
+  this.storage = [];
+}
 
-  save : function(data, id){
+Store.prototype = {
+  save : function(data, callback, id){
+    callback = callback || function(){};
+
     if(id) {
+      // For updates
       for(var i = 0; i < this.storage.length; i++) {
         if(this.storage[i].id === id) {
           for(var prop in data) {
@@ -11,10 +16,15 @@ var Store = {
           break;
         }
       }
+      callback.call(this, this.storage);
+
     } else {
+      // For new items
       var todo = new TodoItem(data);
-      todo.id = new Date().getTime();
+      todo.createdAt = new Date();
+      todo.id = todo.createdAt.getTime();
       this.storage.push(todo);
+      callback.call(this, [todo]);
     }
   },
 
@@ -22,13 +32,16 @@ var Store = {
     for(var i = 0; i < this.storage.length; i++) {
       if(this.storage[i].id === id) {
         this.storage.splice(i, 1);
-        break;
+        return true;
       }
     }
+    return false;
   },
 
-  find : function(query){
-    return this.storage.filter(function(todo){
+  find : function(query, callback){
+    callback = callback || function(){};
+
+    var data = this.storage.filter(function(todo){
       for(var prop in query){
         if(query[prop] !== todo[prop]) {
           return false;
@@ -36,14 +49,17 @@ var Store = {
         return true;
       }
     });
+    callback.call(this, data);
   },
 
-  findAll : function(){
-    var result = [];
+  findAll : function(callback){
+    callback = callback || function(){};
+
+    var data = [];
     this.storage.forEach(function(e){
-      result.push(e);
+      data.push(e);
     });
-    return result;
+    callback.call(this, data);
   },
 
   drop : function(){

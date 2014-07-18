@@ -1,7 +1,13 @@
 var TodoApp = {
-  storage : Store,
-  model : new Model(this.storage),
+  init : function(){
+    this.template = new Template();
+    $('h1').after(this.template.baseTemplate);
 
-  template : new Template(),
-  view : new View(this.template),
+    this.storage = new Store();
+    this.model = new Model(this.storage);
+    this.view = new View(this.template);
+    this.controller = new Controller(this.model, this.view);
+
+    this.view.bind();
+  }
 };

@@ -2,29 +2,85 @@ function Template(){
   this.defaultTemplate =
   '<li data-id="%id%" class="%completed%">' +
     '<div class="view">' +
-      '<input type="checkbox" class="toggle" %checked%>'  +
-      '<label>%title%</label>' +
-      '<button class="destroy"></button>' +
+      '<div>' +
+        '<div>%title%</div>' +
+        '<div>Created: %createdAt%</div>' +
+        '<div>Completed: %completedAt%</div>' +
+      '</div>' +
+      '<input type="checkbox" class="toggle" %checked%>Complete'  +
+      '<button class="destroy">Delete</button>' +
     '</div>' +
   '</li>';
+
+  this.baseTemplate =
+  '<div class="container-fluid">' +
+    '<div class="row">' +
+      '<input type="text" id="new-todo" placeholder="What would you like to do?" autofocus>' +
+      '<button id="todo-submit">Create</button>' +
+    '</div>' +
+    '<div class="row">' +
+      '<span>Total To-dos: </span>' +
+      '<span id="todo-counter"></span> | ' +
+      '<span><a href="#" id="sort-alpha">Sort by Title</a> | ' +
+      '<a href="#" id="sort-created">Sort by Creation Date</a> | ' +
+      '<a href="#" id="sort-completed">Sort by Completed Date</a></span>' +
+    '</div>' +
+    '<div class="row">' +
+      '<div class="col-xs-6">' +
+        '<div>' +
+          '<span>Active: </span>' +
+          '<span id="todo-active-counter"></span>' +
+        '</div>' +
+        '<ul id="todo-active-list"></ul>' +
+      '</div>' +
+      '<div class="col-xs-6">' +
+        '<div>' +
+          '<span>Completed: </span>' +
+          '<span id="todo-completed-counter"></span>' +
+        '</div>' +
+        '<ul id="todo-completed-list"></ul>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
 }
 
-Template.prototype.show = function(data){
-  var view = '';
-  for(var i = 0; i < data.length; i++) {
-    var template = this.defaultTemplate;
-    var completed = '';
-    var checked = '';
+Template.prototype = {
+  show : function(data, comparator){
+    data = data || [];
+    comparator = comparator || function(a, b){
+      if(a.id < b.id) {
+        return -1;
+      } else if(a.id > b.id) {
+        return 1;
+      }
+      return 0;
+    };
+    var view = '';
 
-    if(data[i].completed) {
-      completed = 'completed';
-      checked = 'checked';
+    data.sort(comparator);
+    for(var i = 0; i < data.length; i++) {
+      var template = this.defaultTemplate;
+      var completed = '';
+      var checked = '';
+      var completedAt = '';
+
+      if(data[i].completed) {
+        completed = 'completed';
+        checked = 'checked';
+        completedAt = data[i].completedAt.toLocaleString();
+      }
+      template = template.replace('%id%', data[i].id);
+      template = template.replace('%completed%', completed);
+      template = template.replace('%title%', data[i].title);
+      template = template.replace('%createdAt%', data[i].createdAt.toLocaleString());
+      template = template.replace('%completedAt%', completedAt);
+      template = template.replace('%checked%', checked);
+      view = view + template;
     }
-    template = template.replace('%id%', data[i].id);
-    template = template.replace('%completed%', completed);
-    template = template.replace('%title%', data[i].title);
-    template = template.replace('%checked%', checked);
-    view = view + template;
+    return view;
+  },
+
+  _sortData : function(){
+
   }
-  return view;
 };
