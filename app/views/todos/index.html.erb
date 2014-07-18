@@ -17,14 +17,14 @@
 
 
 <div class="row">
-  <div class="task-panel medium-5 small-12 columns" data-list="active">
+  <div class="task-panel medium-5 small-12 columns" data-list="active" id="active-tasks">
     <div class="task-header">
       <h3>Active Tasks</h3>
     </div>
     <dl class="sub-nav">
       <dt>Sort:</dt>
       <dd><a href="#" data-sort="task">Task Name</a></dd>
-      <dd><a href="#" data-sort="timestamps">Timestamp</a></dd>
+      <dd><a href="#" data-sort="createdAt">Timestamp</a></dd>
     </dl>
     <table class="task-table"></table>
   </div>
@@ -32,14 +32,14 @@
   <div class="medium-2 small-12 columns">
   </div>
 
-  <div class="task-panel medium-5 small-12 columns" data-list="completed">
+  <div class="task-panel medium-5 small-12 columns" data-list="completed" id="completed-tasks">
     <div class="task-header">
       <h3>Completed Tasks</h3>
     </div>
     <dl class="sub-nav">
       <dt>Sort:</dt>
       <dd><a href="#" data-sort="task">Task Name</a></dd>
-      <dd><a href="#" data-sort="timestamps">Timestamp</a></dd>
+      <dd><a href="#" data-sort="completedAt">Timestamp</a></dd>
     </dl>
     <table class="task-table"></table>
   </div>

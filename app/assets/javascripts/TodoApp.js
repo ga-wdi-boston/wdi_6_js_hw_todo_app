@@ -5,8 +5,7 @@ var TodoApp = {
     $('form').submit($.proxy(this.addTask, this));
     $('table').on('click', 'a[title="Complete"]', $.proxy(this.completeTask, this));
     $('table').on('click', 'a[title="Delete"]', $.proxy(this.deleteTask, this));
-    $('a[data-sort="task"]').click($.proxy(this.sortTasks, this));
-    $('a[data-sort="timestamps"]').click($.proxy(this.sortTasks, this));
+    $('dd a').click($.proxy(this.sortTasks, this));
   },
 
   addTask: function(event) {
@@ -48,9 +47,31 @@ var TodoApp = {
   },
 
   sortTasks: function(event) {
-    // Map to sortBy attribute
+    // Get sortBy attribute and data-list info
     var sortBy = $(event.target).data('sort');
-    var attributes = this.tasks.map(function(task){
+    var dataList = $(event.target).closest('div').data('list');
+
+    // Find tasks that need to be sorted
+    var tasksToSort = [];
+    var otherTasks = [];
+    if(dataList === "active") {
+      tasksToSort = this.tasks.filter(function(task){
+        return task.completedAt === null;
+      });
+      otherTasks = this.tasks.filter(function(task){
+        return task.completedAt !== null;
+      });
+    } else if(dataList === "completed") {
+      tasksToSort = this.tasks.filter(function(task){
+        return task.completedAt !== null;
+      });
+      otherTasks = this.tasks.filter(function(task){
+        return task.completedAt === null;
+      });
+    }
+
+    // Map to sort by attribute
+    var attributes = tasksToSort.map(function(task){
       return task[sortBy];
     });
 
@@ -58,12 +79,19 @@ var TodoApp = {
     var sortedAttributes = attributes.sort();
 
     // Sort tasks based off attribute sorting
-    sortedTasks = new Array(this.tasks.length);
+    var sortedTasks = new Array(sortedAttributes.length);
+
     this.tasks.forEach(function(task){
       newIndex = sortedAttributes.indexOf(task[sortBy]);
       sortedTasks[newIndex] = task;
     });
+
+    if(otherTasks.length > 0) {
+      sortedTasks.concat(otherTasks);
+    }
+
     this.tasks = sortedTasks;
+
     this.regenerateLists();
 
     $(event.target).parent().toggleClass('active');
@@ -74,9 +102,9 @@ var TodoApp = {
     $('table').empty();
     this.tasks.forEach(function(task){
       if(task.completedAt !== null) {
-        $('[data-list="completed"]').find('table').append(task.html());
+        $('#completed-tasks').find('table').append(task.html());
       } else {
-        $('[data-list="active"]').find('table').append(task.html());
+        $('#active-tasks').find('table').append(task.html());
       }
     });
   }

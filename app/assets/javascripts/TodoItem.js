@@ -39,9 +39,14 @@ TodoItem.prototype = {
 
   html: function() {
     // Completed table data
-    var iconCompleted = $('<i>').addClass('fi-check');
-    var linkCompleted = $('<a>').attr('href', '#').attr('title', 'Complete').append(iconCompleted);
-    var dataCompleted = $('<td>').append(linkCompleted);
+    var dataCompleted = "";
+    if(this.completedAt === null) {
+      var iconCompleted = $('<i>').addClass('fi-check');
+      var linkCompleted = $('<a>').attr('href', '#').attr('title', 'Complete').append(iconCompleted);
+      dataCompleted = $('<td>').append(linkCompleted);
+    } else {
+      dataCompleted = $('<td>');
+    }
 
     // Task table data
     var dataTask = $('<td>').text(this.task);
