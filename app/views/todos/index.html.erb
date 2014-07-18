@@ -1,2 +1,34 @@
-<h1>To-Do List</h1>
-<p>Add your own markup here!</p>
+
+
+<div class="to-do-application">
+
+  <h1>To-Do List</h1>
+
+  <div class="finished-items">
+  	<p>Finished Items</p>
+    <ul id='finished-to-dos' class='text-left'>
+      <li>Finished Item 1</li>
+      <li>Finished Item 2</li>
+      <li>Finished Item 3</li>
+    </ul>
+  </div>
+
+  <div class="unfinished-items">
+  	<p>Unfinished Items</p>
+    <ul id='unfinished-to-dos' class='text-left'>
+      <li>Unfinished Item 1</li>
+      <li>Unfinished Item 2</li>
+      <li>Unfinished Item 3</li>
+    </ul>
+  </div>
+
+  <div class="submission-form">
+  	<h2>Add new item</h2>
+
+    <form id="new-item">
+  		<input type="text" value="Add a new to-do" id="to-do-field"></input>
+      <a href="#" class="btn btn-lg btn-default" id='create-new-item-button'>Create</a>
+  	</form>
+  </div>
+
+</div>
