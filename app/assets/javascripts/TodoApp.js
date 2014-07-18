@@ -45,5 +45,51 @@ var TodoApp = {
     delIcon = $('<i></i>').addClass('fa fa-times');
     delButton.append(delIcon);
     element.children('.panel-footer').append(delButton);
+  },
+  orderUnsavedByDesc: function(event){
+    event.preventDefault();
+    TodoApp.sortItems(TodoApp.unsavedItems, true);
+    TodoApp.regenPage($('#unsaved-list'), TodoApp.unsavedItems);
+  },
+  orderUnsavedByDate: function(event) {
+    event.preventDefault();
+    TodoApp.sortItems(TodoApp.unsavedItems, false);
+    TodoApp.regenPage($('#unsaved-list'), TodoApp.unsavedItems);
+  },
+  orderSavedByDesc: function(event) {
+    event.preventDefault();
+    TodoApp.sortItems(TodoApp.savedItems, true);
+    TodoApp.regenPage($('#saved-list'), TodoApp.unsavedItems);
+  },
+  orderSavedByDate: function(event) {
+    event.preventDefault();
+    TodoApp.sortItems(TodoApp.savedItems, false);
+    TodoApp.regenPage($('#saved-list'), TodoApp.unsavedItems);
+  },
+  sortItems: function(itemList, isDescription) {
+    itemList.sort(function(a,b) {
+      if(isDescription) {
+        if(a.content > b.content) {
+          return 1;
+        } else {
+          return -1;
+        }
+      } else {
+        if(a.id > b.id) {
+          return 1;
+        } else {
+          return -1;
+        }
+
+      }
+    });
+  },
+  regenPage: function(list, array) {
+    list.find('.to-do-item').remove();
+    array.forEach(function(elem) {
+      var theItem = new TodoItem(elem.content);
+      list.append(theItem.generateElement());
+    });
+
   }
 };
