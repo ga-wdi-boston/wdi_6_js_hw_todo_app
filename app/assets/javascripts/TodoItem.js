@@ -21,7 +21,7 @@ TodoItem.prototype = {
   },
 
   createButtons: function() {
-    var buttonContainer = $('<span>');
+    var buttonContainer = $('<div>');
     buttonContainer.addClass("buttons");
 
     var deleteButton = $('<span>');
@@ -36,11 +36,14 @@ TodoItem.prototype = {
 
   createListElement: function() {
     var newListItem = $('<li>');
-    newListItem.text(this.item);
+    var newListItemDiv = $('<div>');
+
+    newListItemDiv.text(this.item);
 
     if(this.finished === false) {
-      newListItem.append(this.createButtons());
+      newListItemDiv.append(this.createButtons());
     }
+    newListItem.append(newListItemDiv);
 
     return newListItem;
   }
