@@ -48,7 +48,7 @@ var TodoApp = {
   regenerateLists: function() {
     $('table').empty();
     this.tasks.forEach(function(task){
-      if(task.completed) {
+      if(task.completedAt !== null) {
         $('[data-list="completed"]').find('table').append(task.html());
       } else {
         $('[data-list="active"]').find('table').append(task.html());
