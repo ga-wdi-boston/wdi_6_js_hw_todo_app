@@ -8,9 +8,7 @@ var TodoItem = function(name){
 TodoItem.prototype = {
   itemId: 1,
   toHtml: function() {
-    if (this.name.length > 0) {
-      return $('<li>').text(this.name).addClass('unfinished-item').data('id', this.id).append(this.completeButton()).append(this.deleteButton());
-    }
+    return $('<li>').text(this.name).addClass('unfinished-item').data('id', this.id).append(this.completeButton()).append(this.deleteButton());
   },
   completeButton: function() {
     return $('<a>').text('complete').addClass('btn btn-default complete-btn');
