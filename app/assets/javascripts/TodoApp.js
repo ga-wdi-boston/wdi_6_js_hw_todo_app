@@ -86,13 +86,10 @@ var TodoApp = {
       sortedTasks[newIndex] = task;
     });
 
-    if(otherTasks.length > 0) {
-      sortedTasks.concat(otherTasks);
-    }
-
-    this.tasks = sortedTasks;
+    this.tasks = sortedTasks.concat(otherTasks);
 
     this.regenerateLists();
+
 
     $(event.target).parent().toggleClass('active');
     event.preventDefault();
