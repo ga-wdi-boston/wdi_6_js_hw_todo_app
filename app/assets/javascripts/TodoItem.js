@@ -1,35 +1,44 @@
 var TodoItem = function(content){
   this.content = content;
   this.createdAt = new Date();
+  this.id = Date.now();
+  this.isSaved = false;
 };
 
 TodoItem.prototype = {
   generateElement: function() {
-    var newDiv = $('<div>');
-    newDiv.addClass('panel panel-default');
-    var innerDiv = $('<div>');
+    var newDiv = $('<div></div>');
+    newDiv.addClass('panel panel-default to-do-item');
+    var innerDiv = $('<div></div>');
     innerDiv.addClass('panel-body');
     innerDiv.text(this.content);
     newDiv.append(innerDiv);
-    var footer = $('<div>');
+    var footer = $('<div></div>');
     footer.addClass('panel-footer text-right');
     newDiv.append(footer);
-    var btnGroup = $('<div>');
+    var btnGroup = $('<div></div>');
     btnGroup.addClass('btn-group');
     footer.append(btnGroup);
-    var button = $('<button>');
+    var button = $('<button></button>');
     button.addClass('btn btn-default commit');
     btnGroup.append(button);
-    var delButton = $('<button>');
+    var delButton = $('<button></button>');
     delButton.addClass('btn btn-default delete');
     btnGroup.append(delButton);
-    checkIcon = $('<i>');
+    checkIcon = $('<i></i>');
     checkIcon.addClass('fa fa-check-square-o');
     button.append(checkIcon);
-    delIcon = $('<i>');
+    delIcon = $('<i></i>');
     delIcon.addClass('fa fa-times');
     delButton.append(delIcon);
+    newDiv.data('id', this.id);
     return newDiv;
+  },
+  commitElement: function(element){
+    element.remove('.btn-group');
+    var delButton = $('<button></button>');
+    delButton.addClass('btn btn-default delete');
+    element.children('.panel-footer').append(delButton);
   }
 };
 
