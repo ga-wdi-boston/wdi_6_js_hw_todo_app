@@ -2,7 +2,7 @@ var TodoApp = {
   items: [],
   createItem: function(event) {
     var newItem = new TodoItem($('#item-text').val());
-    if (newItem.name.length > 0) {
+    if (/\S/.test(newItem.name)) {
       TodoApp.items.push(newItem);
       $('#unfinished-items').append(newItem.toHtml());
       $('#item-text').val('');
@@ -11,8 +11,11 @@ var TodoApp = {
   },
   completeItem: function(event) {
     if ($(this).parent().hasClass('unfinished-item')) {
-      $(this).parent().removeClass('unfinished-item').addClass('finished-item');
-      $('#finished-items').append($(this).parent());
+      var item = TodoApp.findItem($(this).parent().data('id'));
+      $(this).parent().remove();
+      item.completedAt = new Date();
+      newNode = item.toHtml().removeClass('unfinished-item').addClass('finished-item');
+      $('#finished-items').append(newNode);
     }
   },
   removeItem: function(event) {
