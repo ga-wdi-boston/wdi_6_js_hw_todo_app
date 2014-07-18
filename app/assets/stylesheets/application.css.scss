@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "bootstrap/theme";
+@import "font-awesome";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -14,5 +15,6 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require font-awesome
  *= require_self
  */

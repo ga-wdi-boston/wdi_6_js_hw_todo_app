@@ -14,3 +14,4 @@ gem 'spring', group: :development
 
 gem 'jasmine-rails', groups: [:development, :test]
 gem 'bootstrap-sass'
+gem "font-awesome-rails"

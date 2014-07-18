@@ -3,29 +3,64 @@
   <div class="col-md-12">
     <form role="form">
       <div class="form-group">
-        <input type="item" class="form-control" id="item-input" placeholder="What do you need to do...?">
+        <div class="input-group">
+          <input type="item" class="form-control" id="item-input" placeholder="What do you need to do...?">
+          <span class="input-group-btn">
+            <button class="btn btn-default" id='item-input-submit' type="button">Go!</button>
+          </span>
+        </div>
       </div>
     </form>
   </div>
 </div>
 
+<div class="row" style="padding-bottom: 10px;">
+  <div class="col-md-4">
+    <h3>Unsaved things</h3>
+  </div>
+  <div class="col-md-2 text-right">
+    <div class="btn-group" style="display: inline-block; top:15px;">
+      <button type="button" class="btn btn-default" id="unsaved-by-date">Desc</button>
+      <button type="button" class="btn btn-default" id="unsaved-by-date">Date</button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>Saved things</h3>
+  </div>
+   <div class="col-md-2 text-right">
+    <div class="btn-group" style="display: inline-block; top:15px;">
+      <button type="button" class="btn btn-default" id="saved-by-date">Desc</button>
+      <button type="button" class="btn btn-default" id="saved-by-date">Date</button>
+    </div>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-6">
-    <h3>Unsaved things</h3>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        Panel content
+      <div id="unsaved-list">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            Panel content
+          </div>
+        <div class="panel-footer text-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default commit"><%= fa_icon "check-square-o" %></button>
+            <button type="button" class="btn btn-default delete"><%= fa_icon "times" %></button>
+          </div>
+        </div>
       </div>
-      <div class="panel-footer">Panel footer</div>
     </div>
   </div>
   <div class="col-md-6">
-    <h3>Saved Things</h3>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        Panel content
+    <div class="unsaved-list">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Panel content
+        </div>
+        <div class="panel-footer text-right">
+          <button type="button" class="btn btn-default delete-commited"><%= fa_icon "times" %></button>
+        </div>
+
       </div>
-      <div class="panel-footer">Panel footer</div>
     </div>
   </div>
 </div>
