@@ -3,6 +3,7 @@ $(document).ready(function() {
   $(this).on('click', '.complete-btn', TodoApp.completeItem);
   $(this).on('click', '.delete-btn', TodoApp.removeItem);
   $(this).on('click', '#sort-unfinished-by-name', TodoApp.sort);
+  $(this).on('click', '#sort-unfinished-by-created-at', TodoApp.sort);
 });
 
 //$('#randomize-words-button').click($.proxy(this.randomizeWords, this));

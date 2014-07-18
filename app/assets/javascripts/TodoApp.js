@@ -34,12 +34,13 @@ var TodoApp = {
     if (removalIndex != -1) TodoApp.items.splice(removalIndex, 1);
   },
   sort: function() {
+    var sortCriterion = ($(this).data('type'));
     $('#unfinished-items .unfinished-item').remove();
     var items = TodoApp.items.filter(function (item) { return item.isFinished === false; });
     items.sort(function (a, b) {
-      if (a.name > b.name)
+      if (a[sortCriterion] > b[sortCriterion])
         return 1;
-      if (a.name < b.name)
+      if (a[sortCriterion] < b[sortCriterion])
         return -1;
       return 0;
     });
