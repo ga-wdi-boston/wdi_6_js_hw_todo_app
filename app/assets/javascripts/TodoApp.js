@@ -9,16 +9,17 @@ var TodoApp = {
     }
     event.preventDefault();
   },
-  completeItem: function(event) {
+  completeItem: function() {
     if ($(this).parent().hasClass('unfinished-item')) {
       var item = TodoApp.findItem($(this).parent().data('id'));
       $(this).parent().remove();
       item.completedAt = new Date();
+      item.isFinished = true;
       newNode = item.toHtml().removeClass('unfinished-item').addClass('finished-item');
       $('#finished-items').append(newNode);
     }
   },
-  removeItem: function(event) {
+  removeItem: function() {
     TodoApp.deleteItem(TodoApp.findItem($(this).parent().data('id')));
     $(this).parent().remove();
   },
@@ -31,6 +32,20 @@ var TodoApp = {
       if (TodoApp.items[i].id === item.id) removalIndex = i;
     }
     if (removalIndex != -1) TodoApp.items.splice(removalIndex, 1);
+  },
+  sort: function() {
+    $('#unfinished-items .unfinished-item').remove();
+    var items = TodoApp.items.filter(function (item) { return item.isFinished === false; });
+    items.sort(function (a, b) {
+      if (a.name > b.name)
+        return 1;
+      if (a.name < b.name)
+        return -1;
+      return 0;
+    });
+    items.forEach(function(item){
+      $('#unfinished-items').append(item.toHtml());
+    });
   }
 };
 

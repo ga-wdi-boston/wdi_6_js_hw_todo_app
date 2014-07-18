@@ -1,6 +1,7 @@
 var TodoItem = function(name){
   this.name = name;
   this.createdAt = new Date();
+  this.isFinished = false;
   this.id = this.__proto__.itemId;
   this.__proto__.itemId += 1;
 };
