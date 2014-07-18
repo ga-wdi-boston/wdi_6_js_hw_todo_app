@@ -1,8 +1,9 @@
-var TodoItem = function(content){
+var TodoItem = function(content, options){
+  options = options || {};
   this.content = content;
-  this.createdAt = new Date();
-  this.id = Date.now();
-  this.isSaved = false;
+  this.createdAt = options.createdAt || new Date();
+  this.id = options.id || Date.now();
+  this.isSaved = options.isSaved || false;
 };
 
 TodoItem.prototype = {
@@ -34,12 +35,7 @@ TodoItem.prototype = {
     newDiv.data('id', this.id);
     return newDiv;
   },
-  commitElement: function(element){
-    element.remove('.btn-group');
-    var delButton = $('<button></button>');
-    delButton.addClass('btn btn-default delete');
-    element.children('.panel-footer').append(delButton);
-  }
+
 };
 
 

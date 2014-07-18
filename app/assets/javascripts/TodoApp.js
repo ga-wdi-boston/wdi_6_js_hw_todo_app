@@ -23,6 +23,7 @@ var TodoApp = {
     event.preventDefault();
     var element = $(this).parents('.to-do-item');
     TodoApp.unsavedItems = TodoApp.filterItems(element.data('id'), TodoApp.unsavedItems);
+    TodoApp.tempItem.isSaved = true;
     TodoApp.savedItems.push(TodoApp.tempItem);
     element.remove();
     TodoApp.commitElement(element);
@@ -59,12 +60,12 @@ var TodoApp = {
   orderSavedByDesc: function(event) {
     event.preventDefault();
     TodoApp.sortItems(TodoApp.savedItems, true);
-    TodoApp.regenPage($('#saved-list'), TodoApp.unsavedItems);
+    TodoApp.regenPage($('#saved-list'), TodoApp.savedItems);
   },
   orderSavedByDate: function(event) {
     event.preventDefault();
     TodoApp.sortItems(TodoApp.savedItems, false);
-    TodoApp.regenPage($('#saved-list'), TodoApp.unsavedItems);
+    TodoApp.regenPage($('#saved-list'), TodoApp.savedItems);
   },
   sortItems: function(itemList, isDescription) {
     itemList.sort(function(a,b) {
@@ -87,7 +88,7 @@ var TodoApp = {
   regenPage: function(list, array) {
     list.find('.to-do-item').remove();
     array.forEach(function(elem) {
-      var theItem = new TodoItem(elem.content);
+      var theItem = new TodoItem(elem.content, {id: elem.id, createdAt: elem.createdAt, isSaved: elem.isSaved} );
       list.append(theItem.generateElement());
     });
 
