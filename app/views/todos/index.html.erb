@@ -3,11 +3,11 @@
 
 <div class="row">
   <div class="small-10 columns">
-    <form>
-      <input type="text" placeholder="Add a To Do item">
+    <form id="new-task-form">
+      <input id="new-task-text" type="text" placeholder="Add a To Do item">
   </div>
   <div class="small-2 columns">
-      <button type="submit">Create Item</button>
+      <button type="submit" id="create-task-button">Create Item</button>
   </div>
     </form>
 </div>
@@ -15,13 +15,13 @@
 
 <div class="row">
   <div class="small-6 columns">
-    <h4>Incomplete Tasks</h4>
-      <ol>
+    <h4 class="task-header">Incomplete Tasks</h4>
+      <ol id="incomplete-tasks-list">
       </ol>
 
   </div>
   <div class="small-6 columns">
-    <h4>Completed Tasks</h4>
-      <ol>
+    <h4 class="task-header">Completed Tasks</h4>
+      <ol id="completed-tasks-list">
       </ol>
   </div>
