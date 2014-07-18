@@ -1,7 +1,7 @@
 var TodoItem = function(content, options){
   options = options || {};
   this.content = content;
-  this.createdAt = options.createdAt || new Date();
+  this.createdAt = options.createdAt || this.dateFromString(new Date());
   this.id = options.id || Date.now();
   this.isSaved = options.isSaved || false;
 };
@@ -17,9 +17,12 @@ TodoItem.prototype = {
     var footer = $('<div></div>');
     footer.addClass('panel-footer text-right');
     newDiv.append(footer);
+    footer.append($('<div>').addClass('col-md-9 item-date text-left').text(this.createdAt));
+    var btnDiv = $('<div>').addClass('col-md-3');
+    footer.append(btnDiv);
     var btnGroup = $('<div></div>');
     btnGroup.addClass('btn-group');
-    footer.append(btnGroup);
+    btnDiv.append(btnGroup);
     var button = $('<button></button>');
     button.addClass('btn btn-default commit');
     btnGroup.append(button);
@@ -35,17 +38,20 @@ TodoItem.prototype = {
     newDiv.data('id', this.id);
     return newDiv;
   },
+  dateFromString: function(date) {
+    return 'Created on: ' +(date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
+  }
 
 };
 
-
-      // <div class="panel panel-default">
-      //   <div class="panel-body">
-      //     Panel content
-      //   </div>
-      //    <div class="panel-footer text-right">
-      //     <div class="btn-group">
-      //       <button type="button" class="btn btn-default commit"><%= fa_icon "check-square-o" %></button>
-      //       <button type="button" class="btn btn-default delete"><%= fa_icon "times" %></button>
-      //     </div>
-      //   </div>
+     // <div class="panel-footer">
+     //      <div class="col-md-9 text-left">
+     //        created at
+     //      </div>
+     //      <div class="col-md-3">
+     //        <div class="btn-group">
+     //          <button type="button" class="btn btn-default commit"><%= fa_icon "check-square-o" %></button>
+     //          <button type="button" class="btn btn-default delete"><%= fa_icon "times" %></button>
+     //        </div>
+     //      </div>
+     //    </div>

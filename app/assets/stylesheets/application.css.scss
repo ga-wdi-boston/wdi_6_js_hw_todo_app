@@ -18,3 +18,13 @@
  *= require font-awesome
  *= require_self
  */
+
+.panel-footer {
+  height: 55px;
+}
+
+.item-date {
+  position: relative;
+  left: -20px;
+  top: 5px;
+}
