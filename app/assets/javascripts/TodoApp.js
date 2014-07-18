@@ -8,8 +8,12 @@ var TodoApp = {
     var newTask = $('#new-task-text').val();
     var completeButton = $('<button>').text('Completed!').click(function()
       { alert('move placeholder'); });
-    var deleteButton = $('<button>').text('Delete').click(function()
-      { alert('delete placeholder'); });
+    var deleteButton = $('<button>').text('Delete').click(function(){
+      $('#incomplete-tasks-list').on('click', 'li', function(){
+        $(this).remove();
+        event.preventDefault();
+      });
+    });
 
     if (newTask.length > 0){
       var listItem = $('<li>').text(newTask).append(completeButton).append(deleteButton);
