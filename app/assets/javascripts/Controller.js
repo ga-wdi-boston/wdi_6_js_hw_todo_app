@@ -1,28 +1,23 @@
 function Controller(model, view){
   this.model = model;
   this.view = view;
-  this.sortComparator = function(a, b){
-    return a.id < b.id ? -1 : (a.id > b.id ? 1 : 0);
-  };
+  this.sortComparator = 'createdAt';
 
   var that = this;
   this.view.bind('newTodo', function(title){
     that.create(title);
   });
   this.view.bind('sortAlpha', function(){
-    that.sortComparator = function(a, b){
-      return a.title < b.title ? -1 : (a.title > b.title ? 1 : 0)
-    };
+    that.sortComparator = 'alpha';
+    that._refresh();
   });
   this.view.bind('sortCreated', function(){
-    that.sortComparator = function(a, b){
-      return a.createdAt < b.createdAt ? -1 : (a.createdAt > b.reatedAt ? 1 : 0);
-    };
+    that.sortComparator = 'createdAt';
+    that._refresh();
   });
   this.view.bind('sortCompleted', function(){
-    that.sortComparator = function(a, b){
-      return a.completedAt < b.createdAt ? -1 : (a.completedAt > b.completedAt ? 1 : 0);
-    };
+    that.sortComparator = 'completedAt';
+    that._refresh();
   });
 
   this._refresh();
@@ -99,6 +94,27 @@ Controller.prototype = {
     });
   },
 
+  _alphaComparator : function(a, b){
+    return a.title < b.title ? -1 : (a.title > b.title ? 1 : 0);
+  },
+
+  _createdAtComparator : function(a, b){
+    return a.createdAt < b.createdAt ? -1 : (a.createdAt > b.createdAt ? 1 : 0);
+  },
+
+  _completedAtComparator : function(a, b){
+    return a.completedAt < b.completedAt ? -1 : (a.completedAt > b.completedAt ? 1 : 0);
+  },
+
+  _getComparator : function(){
+      if(this.sortComparator == 'alpha') {
+        return this._alphaComparator;
+      } else if(this.sortComparator == 'completedAt') {
+        return this._completedAtComparator;
+      }
+      return this._createdAtComparator;
+  },
+
   _refresh : function(){
     this._updateCount();
     this.show();
@@ -107,14 +123,22 @@ Controller.prototype = {
   _showActive : function(){
     var that = this;
     this.model.read({completed : false}, function(data){
-      that.view.render('showActive', {data: data, comparator: that.sortComparator});
+      var args = {
+        data: data,
+        comparator: that._getComparator()
+      };
+      that.view.render('showActive', args);
     });
   },
 
   _showCompleted : function(){
     var that = this;
     this.model.read({completed : true}, function(data){
-      that.view.render('showCompleted', {data: data, comparator: that.sortComparator});
+      var args = {
+        data: data,
+        comparator: that._getComparator()
+      };
+      that.view.render('showCompleted', args);
     });
   },
 

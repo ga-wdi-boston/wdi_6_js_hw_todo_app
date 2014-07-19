@@ -53,19 +53,19 @@ View.prototype = {
     } else if(event === 'sortAlpha') {
       this.sortAlpha.click(function(event){
         handler();
-        event.preventDefault()
+        event.preventDefault();
       });
 
     } else if(event === 'sortCreated') {
       this.sortCreated.click(function(event){
         handler();
-        event.preventDefault()
+        event.preventDefault();
       });
 
     } else if(event === 'sortCompleted') {
       this.sortCompleted.click(function(event){
         handler();
-        event.preventDefault()
+        event.preventDefault();
       });
     }
   },

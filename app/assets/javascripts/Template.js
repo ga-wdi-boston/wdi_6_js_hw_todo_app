@@ -1,5 +1,5 @@
 function Template(){
-  this.defaultTemplate =
+  this.listTemplate =
   '<li data-id="%id%" class="%completed%">' +
     '<div class="view">' +
       '<div>' +
@@ -48,18 +48,13 @@ Template.prototype = {
   show : function(data, comparator){
     data = data || [];
     comparator = comparator || function(a, b){
-      if(a.id < b.id) {
-        return -1;
-      } else if(a.id > b.id) {
-        return 1;
-      }
-      return 0;
+      return  a.id < b.id ? -1 : (a.id > b.id ? 1 : 0);
     };
     var view = '';
 
     data.sort(comparator);
     for(var i = 0; i < data.length; i++) {
-      var template = this.defaultTemplate;
+      var template = this.listTemplate;
       var completed = '';
       var checked = '';
       var completedAt = '';
@@ -79,8 +74,4 @@ Template.prototype = {
     }
     return view;
   },
-
-  _sortData : function(){
-
-  }
 };
