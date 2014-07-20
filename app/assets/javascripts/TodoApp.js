@@ -8,11 +8,13 @@ var TodoApp = {
   addTask: function(event){
     event.preventDefault();
     var newItem = new TodoItem();
+    if($('#new-task-text').val().length > 0){
     newItem.task = $('#new-task-text').val();
     $('#new-task-text').val('');
     TodoApp.todoItems.push(newItem);
 
     TodoApp.redrawLists();
+    }
   },
 
   redrawLists: function(){
