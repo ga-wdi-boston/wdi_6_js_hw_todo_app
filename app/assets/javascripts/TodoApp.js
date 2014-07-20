@@ -8,7 +8,9 @@ var TodoApp = {
   addTask: function(event){
     event.preventDefault();
     var newItem = new TodoItem();
-    if($('#new-task-text').val().length > 0){
+    if($('#new-task-text').val().length === 0){
+      alert('Please enter a valid task.');
+    } else {
     newItem.task = $('#new-task-text').val();
     $('#new-task-text').val('');
     TodoApp.todoItems.push(newItem);
