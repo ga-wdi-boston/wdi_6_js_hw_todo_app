@@ -1,26 +1,32 @@
 var TodoApp = {
+  todoItems: [],
   initialize: function(){
   //event listeners must be inside initialize function
   $('#new-task-form').submit(this.addTask);
   },
 
   addTask: function(event){
-    var newTask = $('#new-task-text').val();
-    var completeButton = $('<button>').text('Completed!').click(function()
-      { alert('move placeholder'); });
-    var deleteButton = $('<button>').text('Delete').click(function(){
-      $('#incomplete-tasks-list').on('click', 'li', function(){
-        $(this).remove();
-        event.preventDefault();
-      });
-    });
+    event.preventDefault();
+    var newItem = new TodoItem();
+    newItem.task = $('#new-task-text').val();
+    $('#new-task-text').val('');
+    TodoApp.todoItems.push(newItem);
 
-    if (newTask.length > 0){
-      var listItem = $('<li>').text(newTask).append(completeButton).append(deleteButton);
-      $('#incomplete-tasks-list').append(listItem);
-      $('#new-task-text').val('');
-  }
-  //often used with form submissions
-  event.preventDefault();
+    TodoApp.redrawLists();
+  },
+
+  redrawLists: function(){
+    $('#incomplete-tasks-list').empty();
+    $('#completed-tasks-list').empty();
+    for(var i = 0; i < TodoApp.todoItems.length; i++) {
+      var currentItem = TodoApp.todoItems[i];
+      if(currentItem.deleted === false) {
+        if(currentItem.completed === true) {
+          $('#completed-tasks-list').append(currentItem.html());
+        } else {
+          $('#incomplete-tasks-list').append(currentItem.html());
+        }
+      }
+    }
   }
 };
