@@ -68,6 +68,13 @@ View.prototype = {
         event.preventDefault();
       });
     }
+
+    // Direct all Enter hits to the form button
+    $(document).keypress(function(event) {
+      if(event.keyCode == 13) {
+        that.todoSubmit.click();
+      }
+    });
   },
 
   render : function(command, args){
@@ -75,6 +82,7 @@ View.prototype = {
     var commands = {
       showActive : function(){
         that.todoActiveList.html(that.template.show(args.data, args.comparator));
+        $('#item-completed').remove();
       },
 
       showCompleted : function(){

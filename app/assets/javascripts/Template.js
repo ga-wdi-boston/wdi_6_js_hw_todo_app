@@ -1,16 +1,17 @@
 function Template(){
   this.listTemplate =
-  '<li data-id="%id%" class="%completed%">' +
+  '<li data-id="%id%">' +
     '<div class="view">' +
       '<div>' +
-        '<div>%title%</div>' +
-        '<div>Created: %createdAt%</div>' +
-        '<div>Completed: %completedAt%</div>' +
+        '<div class="%completed%">%title%</div>' +
+        '<div class="item-meta">Created: %createdAt%</div>' +
+        '<div id="item-completed" class="item-meta">Completed: %completedAt%</div>' +
       '</div>' +
       '<input type="checkbox" class="toggle" %checked%>Complete'  +
       '<button class="destroy">Delete</button>' +
     '</div>' +
   '</li>';
+}
 
 Template.prototype = {
   show : function(data, comparator){
@@ -38,6 +39,7 @@ Template.prototype = {
       template = template.replace('%createdAt%', data[i].createdAt.toLocaleString());
       template = template.replace('%completedAt%', completedAt);
       template = template.replace('%checked%', checked);
+
       view = view + template;
     }
     return view;
