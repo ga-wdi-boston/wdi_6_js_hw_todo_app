@@ -1,14 +1,19 @@
 function Template(){
   this.listTemplate =
-  '<li data-id="%id%">' +
-    '<div class="view">' +
-      '<div>' +
-        '<div class="%completed%">%title%</div>' +
-        '<div class="item-meta">Created: %createdAt%</div>' +
-        '<div id="item-completed" class="item-meta">Completed: %completedAt%</div>' +
+  '<li data-id="%id%" class="td-item">' +
+    '<div class="td-item-body-container">' +
+      '<div class="td-item-body">' +
+        '<div class="%completed% td-item-title">%title%</div>' +
+        '<div class="td-item-meta">Created: %createdAt%</div>' +
+        '<div id="item-completed" class="td-item-meta">Completed: %completedAt%</div>' +
       '</div>' +
-      '<input type="checkbox" class="toggle" %checked%>Complete'  +
-      '<button class="destroy">Delete</button>' +
+    '</div>' +
+    '<div class="td-item-control-container">' +
+      '<div class="td-item-control">' +
+        '<input type="checkbox" class="toggle" %checked%>' +
+        '<span class="">Complete</span>' +
+      '</div>'  +
+      '<button class="destroy td-item-control">Delete</button>' +
     '</div>' +
   '</li>';
 }

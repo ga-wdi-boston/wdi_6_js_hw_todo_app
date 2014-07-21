@@ -16,6 +16,7 @@
   <div class="row">
     <div class="col-xs-12">
       <ul class="nav nav-pills">
+        <li class="td-nav-pill">Sort By</li>
         <li><a href="#" id="sort-alpha">Title</a></li>
         <li><a href="#" id="sort-created">Created</a></li>
         <li><a href="#" id="sort-completed">Completed</a></li>
@@ -24,18 +25,18 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <div>
+      <div class="td-list-header">
         <span>Active: </span>
         <span id="todo-active-counter"></span>
       </div>
-      <ul id="todo-active-list"></ul>
+      <ul id="todo-active-list" class="td-list-container"></ul>
     </div>
     <div class="col-xs-6">
-      <div>
+      <div class="td-list-header">
         <span>Completed: </span>
         <span id="todo-completed-counter"></span>
       </div>
-      <ul id="todo-completed-list"></ul>
+      <ul id="todo-completed-list" class="td-list-container"></ul>
     </div>
   </div>
 </div>
